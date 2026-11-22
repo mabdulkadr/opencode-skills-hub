@@ -1,4 +1,4 @@
-﻿<#
+<#
 .TITLE
     Test-ReadmeFidelity
 
@@ -268,7 +268,7 @@ if ($readme -match 'star the repo') {
 } else {
     Write-Check -Status 'FAIL' -Name 'Footer star line'
 }
-if ($readme -match [regex]::Escape('Built with [**PowerShell Enterprise Admin**](https://github.com/mabdulkadr/powershell-enterprise-admin-skill)')) {
+if ($readme -match [regex]::Escape('Built with [**PowerShell Enterprise Admin**](https://github.com/mabdulkadr/powershell-enterprise-admin)')) {
     Write-Check -Status 'PASS' -Name 'Footer Built-with signature'
 } else {
     Write-Check -Status 'FAIL' -Name 'Footer Built-with signature'
