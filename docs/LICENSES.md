@@ -15,7 +15,7 @@ Files that exist on disk:
 | `skill-creator` | `skills/skill-creator/LICENSE.txt` |
 | `deep-research` | `skills/deep-research/UPSTREAM-LICENSE.txt` (Apache-2.0), `skills/deep-research/UPSTREAM-NOTICE.md` |
 | `mo-humanizer` | `skills/mo-humanizer/LICENSE` (MIT) |
-| `powershell-enterprise-admin` | `skills/powershell-enterprise-admin/LICENSE`, plus vendored copies under `M365-Auth-Modules-main/`, `SCCM-OSD-Deployment-Kit-main/`, and `powershell-enterprise-admin-skill-main/` |
+| `powershell-enterprise-admin` | `skills/powershell-enterprise-admin/LICENSE` |
 
 ## License declared in frontmatter only
 

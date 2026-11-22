@@ -89,7 +89,7 @@ Each row lists the skill's `name` (what you use to invoke it) and the folder it 
 
 | Skill | Folder | Description | Extras |
 |-------|--------|-------------|--------|
-| `powershell-enterprise-admin` | `powershell-enterprise-admin` | Production-grade PowerShell tools: Tailwind Slate WPF GUIs, Intune Proactive Remediation pairs, Graph/Entra ID automation, AD bulk ops, WinRM, CIM inventory, event logs, printer management, macOS bash. | `LICENSE`, `README.md`, `CHANGELOG.md`, `references/`, `scripts/`, `templates/`, `snippets/`, `evals/`, `books/`, plus vendored project folders (`M365-Auth-Modules-main`, `SCCM-OSD-Deployment-Kit-main`, `CommandBridge-main`, …) |
+| `powershell-enterprise-admin` | `powershell-enterprise-admin` | Production-grade PowerShell tools: Tailwind Slate WPF GUIs, Intune Proactive Remediation pairs, Graph/Entra ID automation, AD bulk ops, WinRM, CIM inventory, event logs, printer management, macOS bash. | `LICENSE`, `README.md`, `CHANGELOG.md`, `references/`, `scripts/`, `templates/`, `snippets/`, `evals/` |
 
 ---
 
