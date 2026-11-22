@@ -1,0 +1,7 @@
+OpenCode Skills Hub - Collection
+
+This repository is a curated aggregation of skills, agents, and commands for OpenCode.
+Individual skills may carry their own licenses (see docs/LICENSES.md and license files
+inside skill folders). The collection itself is provided "as-is" without warranty.
+
+Upstream source: https://openskills.cc/skills
