@@ -82,7 +82,7 @@ Compare A and B based on (in priority order):
 2. **Secondary**: Assertion pass rates (if applicable)
 3. **Tiebreaker**: If truly equal, declare a TIE
 
-Be decisive - ties should be rare. One output is usually better, even if marginally.
+Be decisive: ties should be rare. One output is usually better, even if marginally.
 
 ### Step 7: Write Comparison Results
 

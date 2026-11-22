@@ -20,7 +20,7 @@ Use this skill when you:
 ## Principles
 
 ### 1. AI Is an Assistant, Not an Autopilot
-You retain control. AI accelerates individual steps but replaces neither strategy nor judgment.
+AI accelerates individual steps but replaces neither strategy nor judgment.
 
 ### 2. The Workflow Decides, Not the Tool
 Define in advance which phases AI assists with and which it does not. Without a clear process, results are arbitrary.
@@ -138,8 +138,8 @@ Integrating every new AI feature immediately without evaluating its value. **Sol
 
 ## Cross-References
 
-- `design-process` — The AI workflow is an extension, not a replacement for the design process
-- `customer-journey` — AI can accelerate persona development and touchpoint analysis
-- `landing-pages` — AI-generated text and images must meet landing page standards
-- `website-audit` — AI tools can support website analysis
-- `branding-identity` — AI output must align with brand identity
+- `design-process`: The AI workflow is an extension, not a replacement for the design process
+- `customer-journey`: AI can accelerate persona development and touchpoint analysis
+- `landing-pages`: AI-generated text and images must meet landing page standards
+- `website-audit`: AI tools can support website analysis
+- `branding-identity`: AI output must align with brand identity

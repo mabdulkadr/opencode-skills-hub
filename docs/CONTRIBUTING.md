@@ -4,17 +4,17 @@
 
 1. Create a folder `skills/<skill-name>/`.
 2. Add `SKILL.md` with YAML frontmatter containing at least `name` and `description`.
-3. Add supporting assets (`references/`, `scripts/`, `resources/`, `assets/`) if needed — keep them inside the skill folder.
+3. Add supporting assets (`references/`, `scripts/`, `resources/`, `assets/`) if needed, and keep them inside the skill folder.
 4. Include the upstream license file when applicable.
 5. Update [`SKILLS.md`](SKILLS.md) and the catalog in [`../README.md`](../README.md).
 
 ### Rules for skills
 
-- **The `name` must be unique across all installed skills.** OpenCode keys skills off `name`, so a duplicate silently shadows another skill at install time.
+- The `name` must be unique across all installed skills. OpenCode keys skills off `name`, so a duplicate silently shadows another skill at install time.
 - Prefer `name` == folder name. If they must differ (as with `business-english-it-pro` in `Business-English-IT-Pro-Skill/`), note the mapping in [`STRUCTURE.md`](STRUCTURE.md).
-- `description` drives automatic selection: state what the skill does **and** when to use it, including trigger phrases.
+- `description` drives automatic selection: state what the skill does and when to use it, including trigger phrases.
 - Do not paste a license into `SKILL.md`; ship a `LICENSE`/`LICENSE.txt` file and reference it.
-- Keep the frontmatter honest — do not claim `risk: safe` for a skill that runs shell commands.
+- Keep the frontmatter honest. Do not claim `risk: safe` for a skill that runs shell commands.
 
 ### Frontmatter shape
 
@@ -67,10 +67,10 @@ permissions:
 
 ## Adding a rule
 
-1. Create `rules/<rule-name>.md` as plain Markdown — no frontmatter.
+1. Create `rules/<rule-name>.md` as plain Markdown, with no frontmatter.
 2. Keep it stack-scoped where possible; avoid duplicating a sibling rule's content.
 3. State precedence explicitly if the rule can conflict with project conventions.
-4. Add it to [`RULES.md`](RULES.md). No config change is needed — the `instructions` glob picks it up.
+4. Add it to [`RULES.md`](RULES.md). No config change is needed; the `instructions` glob picks it up.
 
 ## Pull requests
 

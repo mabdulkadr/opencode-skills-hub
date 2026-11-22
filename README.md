@@ -10,7 +10,7 @@
 [![Rules](https://img.shields.io/badge/Rules-3-3B82F6?style=for-the-badge)](#-rules)
 [![Plugin](https://img.shields.io/badge/Plugin-skill--creator-EC4899?style=for-the-badge)](#-plugin)
 
-[Overview](#-overview) • [On-Disk Layout](#-on-disk-layout) • [Skills Catalog](#-skills-catalog) • [Agents](#-agents) • [Commands](#-commands) • [Rules](#-rules) • [Installation](#-installation) • [Usage](#-usage) • [Docs](#-docs) • [License](#-license)
+[Overview](#-overview) • [Features](#-core-features) • [Structure](#-project-structure) • [Usage](#-usage) • [Requirements](#-requirements) • [Operational Notes](#-operational-notes) • [Docs](#-docs) • [License](#-license)
 
 </div>
 
@@ -18,7 +18,7 @@
 
 # 📖 Overview
 
-This repository is a curated, ready-to-use collection of **skills**, **agents**, **commands**, and **rules** for [OpenCode](https://opencode.ai). Drop the folders into your OpenCode config directory and they become available instantly.
+This repository is a curated, ready-to-use collection of skills, agents, commands, and rules for [OpenCode](https://opencode.ai). Drop the folders into your OpenCode config directory and they become available instantly.
 
 What ships in this repo, as counted on disk:
 
@@ -36,7 +36,25 @@ Canonical docs live in [`docs/`](docs/): [`docs/SKILLS.md`](docs/SKILLS.md) is t
 
 ---
 
-# 📂 On-Disk Layout
+# ✨ Core Features
+
+## ℹ️ About the Project
+
+* What: a curated collection of reusable skills, agents, commands, and rules for OpenCode.
+* Skills (42): backend/frontend architecture, code review, security & SEO audits, accessibility, performance, UI/UX and design systems, research, memory systems, career tooling (job fit, resumes), English curriculum authoring, writing cleanup, and PowerShell enterprise automation.
+* Agents (8): `code-simplifier` plus 7 specialists (accessibility, code review, documentation, security, SEO, UX/UI, web development). Two of them (`security-expert`, `web-developer`) are primary agents; the rest are subagents. See [`docs/AGENTS.md`](docs/AGENTS.md).
+* Commands (3): `/code-review`, `/doc-compress`, `/scaffold-frontend-project`.
+* Rules (3): `astro`, `bulma`, `clean-code` global baselines.
+* Plugin (1): `opencode-skill-creator`: create, test, evaluate, and package skills; published on npm and kept in-tree under `plugins/`.
+* How to use: run `./install.sh --all` or `.\install.ps1 -All`, or copy the folders manually into `~/.config/opencode/`. See [`docs/INSTALLATION.md`](docs/INSTALLATION.md).
+* Quality bar: each skill is a self-contained folder with a `SKILL.md` carrying YAML frontmatter (`name`, `description`) plus optional `references/`, `scripts/`, `resources/`, or `assets/`. Bundled assets must be copied along with `SKILL.md`.
+* Start here: [`docs/INSTALLATION.md`](docs/INSTALLATION.md) for setup, then [`docs/USAGE.md`](docs/USAGE.md).
+
+---
+
+# 📂 Project Structure
+
+## On-Disk Layout
 
 What actually exists at the repo root:
 
@@ -72,25 +90,13 @@ See [`docs/SKILLS.md`](docs/SKILLS.md) for the full skills catalog and [`docs/ST
 
 ---
 
-# ℹ️ About the Project
+# 🚀 Usage
 
-* **What:** a curated collection of reusable skills, agents, commands, and rules for OpenCode.
-* **Skills (42):** backend/frontend architecture, code review, security & SEO audits, accessibility, performance, UI/UX and design systems, research, memory systems, career tooling (job fit, resumes), English curriculum authoring, writing cleanup, and PowerShell enterprise automation.
-* **Agents (8):** `code-simplifier` plus 7 specialists (accessibility, code review, documentation, security, SEO, UX/UI, web development). Two of them (`security-expert`, `web-developer`) are primary agents; the rest are subagents. See [`docs/AGENTS.md`](docs/AGENTS.md).
-* **Commands (3):** `/code-review`, `/doc-compress`, `/scaffold-frontend-project`.
-* **Rules (3):** `astro`, `bulma`, `clean-code` global baselines.
-* **Plugin (1):** `opencode-skill-creator` — create, test, evaluate, and package skills; published on npm and kept in-tree under `plugins/`.
-* **How to use:** run `./install.sh --all` or `.\install.ps1 -All`, or copy the folders manually into `~/.config/opencode/`. See [`docs/INSTALLATION.md`](docs/INSTALLATION.md).
-* **Quality bar:** each skill is a self-contained folder with a `SKILL.md` carrying YAML frontmatter (`name`, `description`) plus optional `references/`, `scripts/`, `resources/`, or `assets/`. Bundled assets must be copied along with `SKILL.md`.
-* **Start here:** [`docs/INSTALLATION.md`](docs/INSTALLATION.md) for setup, then [`docs/USAGE.md`](docs/USAGE.md).
-
----
-
-# 🧩 Skills Catalog
+## 🧩 Skills Catalog
 
 42 skills, one folder each. Full descriptions and per-skill extras are in [`docs/SKILLS.md`](docs/SKILLS.md).
 
-## Development & Architecture (7)
+### Development & Architecture (7)
 | Skill | Description |
 |-------|-------------|
 | `backend-architect` | Scalable API design, microservices architecture, distributed systems. |
@@ -101,7 +107,7 @@ See [`docs/SKILLS.md`](docs/SKILLS.md) for the full skills catalog and [`docs/ST
 | `code-documentation-doc-generate` | API docs, architecture diagrams, user guides, technical references. |
 | `update-documentation` | Update READMEs, changelogs, API docs, comments, docstrings, examples. |
 
-## Review, Security & Performance (5)
+### Review, Security & Performance (5)
 | Skill | Description |
 |-------|-------------|
 | `code-review` | Code review, testing, and bug fixing. |
@@ -110,7 +116,7 @@ See [`docs/SKILLS.md`](docs/SKILLS.md) for the full skills catalog and [`docs/ST
 | `security-audit` | Severity-ranked security audit of source, dependencies, config, and IaC. |
 | `seo-audit` | SEO/marketing audit with concrete suggested fixes (never edits code). |
 
-## UI / UX / Design (15)
+### UI / UX / Design (15)
 | Skill | Description |
 |-------|-------------|
 | `frontend-design` | Distinctive, intentional visual design; avoid templated defaults. |
@@ -129,14 +135,14 @@ See [`docs/SKILLS.md`](docs/SKILLS.md) for the full skills catalog and [`docs/ST
 | `branding-identity` | Brand strategy, visual identity, positioning, consistency. |
 | `theme-factory` | 10 preset themes with colors and fonts for artifacts. |
 
-## Planning & Research (3)
+### Planning & Research (3)
 | Skill | Description |
 |-------|-------------|
 | `writing-plans` | Turn a spec into a bite-sized, file-and-test-level implementation plan. |
 | `deep-research` | Autonomous research: plan, search, read, synthesize into reports. |
 | `interview-me` | One-question-at-a-time interview to surface real intent. |
 
-## Memory, Files & Productivity (4)
+### Memory, Files & Productivity (4)
 | Skill | Description |
 |-------|-------------|
 | `agent-memory-mcp` | Hybrid persistent memory system for AI agents. |
@@ -144,13 +150,13 @@ See [`docs/SKILLS.md`](docs/SKILLS.md) for the full skills catalog and [`docs/ST
 | `file-organizer` | Organize files with duplicate review before changes. |
 | `markitdown` | Convert documents and URIs to Markdown (Microsoft MarkItDown). |
 
-## Skill Tooling (2)
+### Skill Tooling (2)
 | Skill | Description |
 |-------|-------------|
 | `skill-creator` | Create, edit, evaluate, and optimize skills. |
 | `opencode-skill-creator` | Same workflow built on the OpenCode plugin's tools. |
 
-## Career & Business (5)
+### Career & Business (5)
 | Skill | Description |
 |-------|-------------|
 | `jobfit-intelligence` | Job-fit analysis, gap analysis, salary intelligence, interview prep. |
@@ -158,19 +164,17 @@ See [`docs/SKILLS.md`](docs/SKILLS.md) for the full skills catalog and [`docs/ST
 | `tailored-resume-generator` | Generate resumes tailored to a job description. |
 | `business-english-it-pro` | Business/IT English curriculum factory v3.3 (folder `Business-English-IT-Pro-Skill`). |
 
-## Writing (1)
+### Writing (1)
 | Skill | Description |
 |-------|-------------|
 | `mo-humanizer` | Rewrite AI-sounding prose without changing meaning (AI tells, filler, inflated claims; Arabic, English, mixed technical). |
 
-## Platform (1)
+### Platform (1)
 | Skill | Description |
 |-------|-------------|
 | `powershell-enterprise-admin` | PowerShell tooling, WPF GUIs, Intune remediation, Graph/Entra automation. |
 
----
-
-# 🤖 Agents
+## 🤖 Agents
 
 | Agent | Mode | Description |
 |-------|------|-------------|
@@ -185,9 +189,7 @@ See [`docs/SKILLS.md`](docs/SKILLS.md) for the full skills catalog and [`docs/ST
 
 All agents are sandboxed to the current workspace and gate every edit behind approval. Details in [`docs/AGENTS.md`](docs/AGENTS.md).
 
----
-
-# ⚡ Commands
+## ⚡ Commands
 
 | Command | Description |
 |---------|-------------|
@@ -197,9 +199,7 @@ All agents are sandboxed to the current workspace and gate every edit behind app
 
 Details in [`docs/COMMANDS.md`](docs/COMMANDS.md).
 
----
-
-# 📏 Rules
+## 📏 Rules
 
 | Rule | Purpose |
 |------|---------|
@@ -209,9 +209,7 @@ Details in [`docs/COMMANDS.md`](docs/COMMANDS.md).
 
 `opencode.jsonc` loads them with `"instructions": ["~/.config/opencode/rules/*.md"]`. Details in [`docs/RULES.md`](docs/RULES.md).
 
----
-
-# 🔌 Plugin
+## 🔌 Plugin
 
 `plugins/skill-creator/` is the source of the npm package **`opencode-skill-creator`** (v0.2.25): TypeScript tools for validating, evaluating, benchmarking, and optimizing skills.
 
@@ -221,11 +219,9 @@ npx opencode-skill-creator install --global
 
 It is not installed by `install.sh` / `install.ps1`; see [`plugins/skill-creator/README.md`](plugins/skill-creator/README.md).
 
----
+## 🚀 Installation
 
-# 🚀 Installation
-
-## Quick install (recommended)
+### Quick install (recommended)
 
 Windows:
 ```powershell
@@ -241,7 +237,7 @@ Selective: `.\install.ps1 -Skills -Agents` or `./install.sh --skills --agents`.
 
 The installers merge recursively into `~/.config/opencode/{skills,agents,commands,rules}` and never delete anything you already have.
 
-## Windows (PowerShell) — manual
+### Windows (PowerShell) manual
 
 ```powershell
 $cfg = "$env:USERPROFILE\.config\opencode"
@@ -252,7 +248,7 @@ Copy-Item -Recurse .\commands\* "$cfg\commands\"
 Copy-Item -Recurse .\rules\*    "$cfg\rules\"
 ```
 
-## macOS / Linux — manual
+### macOS / Linux manual
 
 ```bash
 cfg="$HOME/.config/opencode"
@@ -263,7 +259,7 @@ cp -r commands/* "$cfg/commands/"
 cp -r rules/*    "$cfg/rules/"
 ```
 
-## Selective install
+### Selective install
 
 ```powershell
 $cfg = "$env:USERPROFILE\.config\opencode"
@@ -272,38 +268,53 @@ Copy-Item -Recurse .\skills\frontend-design "$cfg\skills\"
 
 Restart OpenCode after installing. See [`docs/INSTALLATION.md`](docs/INSTALLATION.md) for verification, updates, and removal.
 
----
+## 🧭 Usage
 
-# 🧭 Usage
-
-* **Skills** are loaded by OpenCode via the `skill` tool using the skill's `name` (from `SKILL.md` frontmatter). Request explicitly: *"Use the clean-code skill to refactor this module."*
-* **Agents** in `agents/` are invoked as subagents (e.g. `code-simplifier` runs after code edits) or selected as primary agents.
-* **Commands** are invoked with `/`: `/code-review 123`, `/doc-compress`, `/scaffold-frontend-project`.
-* **Rules** are global instruction files applied across agents.
+* Skills are loaded by OpenCode via the `skill` tool using the skill's `name` (from `SKILL.md` frontmatter). Request explicitly: *"Use the clean-code skill to refactor this module."*
+* Agents in `agents/` are invoked as subagents (e.g. `code-simplifier` runs after code edits) or selected as primary agents.
+* Commands are invoked with `/`: `/code-review 123`, `/doc-compress`, `/scaffold-frontend-project`.
+* Rules are global instruction files applied across agents.
 
 See [`docs/USAGE.md`](docs/USAGE.md) for best practices.
 
+## 📚 Docs
+
+* [`docs/INDEX.md`](docs/INDEX.md): documentation index and quick start.
+* [`docs/STRUCTURE.md`](docs/STRUCTURE.md): repository layout, skill anatomy, naming rules.
+* [`docs/SKILLS.md`](docs/SKILLS.md): complete skills catalog (42 folders).
+* [`docs/AGENTS.md`](docs/AGENTS.md): agent definitions, modes, permissions.
+* [`docs/COMMANDS.md`](docs/COMMANDS.md): slash commands reference.
+* [`docs/RULES.md`](docs/RULES.md): global rules reference.
+* [`docs/INSTALLATION.md`](docs/INSTALLATION.md): install, verify, update, remove.
+* [`docs/USAGE.md`](docs/USAGE.md): how to use skills, agents, commands.
+* [`docs/CONTRIBUTING.md`](docs/CONTRIBUTING.md): contributing guide.
+* [`docs/LICENSES.md`](docs/LICENSES.md): license inventory.
+
 ---
 
-# 📚 Docs
+# ⚙️ Requirements
 
-* [`docs/INDEX.md`](docs/INDEX.md) — documentation index and quick start.
-* [`docs/STRUCTURE.md`](docs/STRUCTURE.md) — repository layout, skill anatomy, naming rules.
-* [`docs/SKILLS.md`](docs/SKILLS.md) — complete skills catalog (42 folders).
-* [`docs/AGENTS.md`](docs/AGENTS.md) — agent definitions, modes, permissions.
-* [`docs/COMMANDS.md`](docs/COMMANDS.md) — slash commands reference.
-* [`docs/RULES.md`](docs/RULES.md) — global rules reference.
-* [`docs/INSTALLATION.md`](docs/INSTALLATION.md) — install, verify, update, remove.
-* [`docs/USAGE.md`](docs/USAGE.md) — how to use skills, agents, commands.
-* [`docs/CONTRIBUTING.md`](docs/CONTRIBUTING.md) — contributing guide.
-* [`docs/LICENSES.md`](docs/LICENSES.md) — license inventory.
+* [OpenCode](https://opencode.ai) installed.
+* Write access to `~/.config/opencode/` (`%USERPROFILE%\.config\opencode` on Windows).
+* Optional: `gh` CLI for `/code-review`, `pnpm` for `/scaffold-frontend-project`, Python + `uv` for `markitdown` and `deep-research`.
+* Copy whole skill folders so bundled assets stay with `SKILL.md`; see [`docs/INSTALLATION.md`](docs/INSTALLATION.md) and [`docs/SKILL-REGISTRATION.md`](docs/SKILL-REGISTRATION.md).
+
+---
+
+# 🛡 Operational Notes
+
+* The installers merge recursively and never delete anything you already have. Restart OpenCode after installing.
+* All agents are sandboxed to the current workspace and gate every edit behind approval.
+* Bundled assets must be copied along with `SKILL.md`; copying the file alone breaks some skills.
+* Rules need an `instructions` entry in `opencode.jsonc`; copying the files alone does nothing.
+* The plugin is not installed by `install.sh` / `install.ps1`; it installs through npm.
 
 ---
 
 ## 👤 Author
 
-**Mohammad Abdelkader Omar**
-GitHub: [@mabdulkadr](https://github.com/mabdulkadr)
+**Mohammad Abdelkader Omar**  
+GitHub: [@mabdulkadr](https://github.com/mabdulkadr)  
 Website: [momar.tech](https://momar.tech)
 
 ---
@@ -316,15 +327,15 @@ Individual skills may carry their own licenses (see `docs/LICENSES.md` and licen
 
 ## ⚠ Disclaimer
 
-This project and every script it contains are provided as-is with no warranty of any kind. Test in a staging environment before deploying to production. The authors assume no liability for any damage or data loss resulting from their use. Skills are sourced from third parties — please respect upstream licenses and terms.
+This project and every script it contains are provided as-is with no warranty of any kind. Test in a staging environment before deploying to production. The authors assume no liability for any damage or data loss resulting from their use. Skills are sourced from third parties; please respect upstream licenses and terms.
 
 ---
 
 <div align="center">
 
-⭐ **If this project saves you time, star the repo — it helps others find it.**
+⭐ **If this project saves you time, star the repo; it helps others find it.**
 
-[Report an Issue](../../issues) · [momar.tech](https://momar.tech)
+[Report an Issue](https://github.com/mabdulkadr/opencode-skills-hub/issues) · [momar.tech](https://momar.tech)
 
 [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/mabdulkadrx)
 

@@ -1,6 +1,6 @@
 # Agents
 
-The repository ships **8 agents** in `agents/`. Two are primary agents you can select directly; six are subagents.
+The repository ships 8 agents in `agents/`. Two are primary agents you can select directly; six are subagents.
 
 | Agent | File | Mode |
 |-------|------|------|
@@ -17,16 +17,16 @@ The repository ships **8 agents** in `agents/`. Two are primary agents you can s
 
 Seven of the eight agents use the same safety envelope:
 
-- **Scoped work** — `external_directory: deny` is listed last, and the last matching rule wins, so reads, writes, and shell targets outside the workspace are blocked.
-- **Approval gate** — `edit` is set to `ask`, so the agent proposes changes and applies them only after you approve.
-- **Reference access** — `webfetch`, `websearch`, and connected MCP tools (`*_*`) are allowed for docs, standards, and CVE/SEO references.
-- **Focused skills** — each agent allows only the skills its job needs.
+- `external_directory: deny` is listed last, and the last matching rule wins, so reads, writes, and shell targets outside the workspace are blocked.
+- `edit` is set to `ask`, so the agent proposes changes and applies them only after you approve.
+- `webfetch`, `websearch`, and connected MCP tools (`*_*`) are allowed for docs, standards, and CVE/SEO references.
+- Each agent allows only the skills its job needs.
 
 `code-simplifier` is the exception: it defines only a `description` and `mode` and inherits the default permissions.
 
 ## `code-simplifier`
 
-**File:** `agents/code-simplifier.md` · **Mode:** `subagent`
+File: `agents/code-simplifier.md` · Mode: `subagent`
 
 Simplifies and refines code for clarity, consistency, and maintainability while preserving all functionality. Focuses on recently modified code unless instructed otherwise.
 
@@ -50,66 +50,66 @@ Simplifies and refines code for clarity, consistency, and maintainability while 
 
 ## `accessibility-expert`
 
-**File:** `agents/accessibility-expert.md` · **Mode:** `subagent`
+File: `agents/accessibility-expert.md` · Mode: `subagent`
 
 Frontend accessibility expert: audits against WCAG 2.2 AA, proposes fixes, and applies them only after approval.
 
-- **Skill:** `frontend-accessibility`
-- **Permissions:** `edit: ask`, web access allowed, MCP allowed, `subagent: deny` (leaf agent — it never launches other subagents), `external_directory: deny`
+- Skill: `frontend-accessibility`
+- Permissions: `edit: ask`, web access allowed, MCP allowed, `subagent: deny` (leaf agent, so it never launches other subagents), `external_directory: deny`
 
 ## `code-reviewer`
 
-**File:** `agents/code-reviewer.md` · **Mode:** `subagent`
+File: `agents/code-reviewer.md` · Mode: `subagent`
 
 Expert reviewer for code changes: reviews, proposes fixes, applies them only after approval.
 
-- **Skills:** `code-review`, `performance-optimizer`, `systematic-debugging`
-- **Permissions:** `edit: ask`, web access allowed, MCP allowed, `external_directory: deny`
+- Skills: `code-review`, `performance-optimizer`, `systematic-debugging`
+- Permissions: `edit: ask`, web access allowed, MCP allowed, `external_directory: deny`
 
 ## `documentation-updater`
 
-**File:** `agents/documentation-updater.md` · **Mode:** `subagent`
+File: `agents/documentation-updater.md` · Mode: `subagent`
 
 Keeps docs accurate and in sync with code; proposes changes and applies them only after approval.
 
-- **Skill:** `update-documentation`
-- **Permissions:** `edit: ask`, web access allowed, MCP allowed, `external_directory: deny`
+- Skill: `update-documentation`
+- Permissions: `edit: ask`, web access allowed, MCP allowed, `external_directory: deny`
 
 ## `seo-expert`
 
-**File:** `agents/seo-expert.md` · **Mode:** `subagent`
+File: `agents/seo-expert.md` · Mode: `subagent`
 
 Audits on-page, technical, and content SEO, proposes fixes, applies them only after approval.
 
-- **Skill:** `seo-audit`
-- **Permissions:** `edit: ask`, web access allowed, MCP allowed, `external_directory: deny`
+- Skill: `seo-audit`
+- Permissions: `edit: ask`, web access allowed, MCP allowed, `external_directory: deny`
 
 ## `ux-ui-expert`
 
-**File:** `agents/ux-ui-expert.md` · **Mode:** `subagent`
+File: `agents/ux-ui-expert.md` · Mode: `subagent`
 
 Designs and reviews UI/UX and graphics; proposes changes and applies them only after approval.
 
-- **Skill:** `web-design`
-- **Permissions:** `edit: ask`, web access allowed, MCP allowed, `external_directory: deny`
+- Skill: `web-design`
+- Permissions: `edit: ask`, web access allowed, MCP allowed, `external_directory: deny`
 
 ## `security-expert`
 
-**File:** `agents/security-expert.md` · **Mode:** `primary`
+File: `agents/security-expert.md` · Mode: `primary`
 
 Cybersecurity expert: audits source code, secrets, dependencies, and IaC for vulnerabilities and misconfigurations, proposes fixes, applies them only after approval. Triggered by "check security", "find vulnerabilities", "is this code secure", "pentest", or mentions of CVEs, secrets, or security headers.
 
-- **Skill:** `security-audit`
-- **Permissions:** `edit: ask`, web access allowed, MCP allowed, `external_directory: deny`
+- Skill: `security-audit`
+- Permissions: `edit: ask`, web access allowed, MCP allowed, `external_directory: deny`
 
 ## `web-developer`
 
-**File:** `agents/web-developer.md` · **Mode:** `primary`
+File: `agents/web-developer.md` · Mode: `primary`
 
 Senior web developer for Astro, Vue, TypeScript, and modern frontend work. Works only inside the current project. This is the `default_agent` in `opencode.jsonc`.
 
-- **Skills:** `systematic-debugging`, `performance-optimizer`, `website-analyzer`
-- **Permissions:** `edit: ask`, web access allowed, MCP allowed, `external_directory: deny`
+- Skills: `systematic-debugging`, `performance-optimizer`, `website-analyzer`
+- Permissions: `edit: ask`, web access allowed, MCP allowed, `external_directory: deny`
 
 ## Installation
 

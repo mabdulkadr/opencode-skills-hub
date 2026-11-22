@@ -23,17 +23,17 @@ project-root/
 
 ### Structure Rules
 
-**`public/images/`** — Only assets not going through bundler: images referenced directly by URL in markup/meta tags (`og:image`, favicon, etc.). Images used inside Astro components go in `src/assets/`.
+`public/images/`: Only assets not going through bundler: images referenced directly by URL in markup/meta tags (`og:image`, favicon, etc.). Images used inside Astro components go in `src/assets/`.
 
-**`src/assets/`** — Everything Vite must process: images imported inside components, inline SVGs, local fonts. Astro optimizes images imported here.
+`src/assets/`: Everything Vite must process: images imported inside components, inline SVGs, local fonts. Astro optimizes images imported here.
 
-**`src/components/`** — Reusable `.astro` components. Page-specific components next to page or dedicated subfolder. As project grows, organize by domain (e.g. `components/nav/`, `components/cards/`).
+`src/components/`: Reusable `.astro` components. Page-specific components next to page or dedicated subfolder. As project grows, organize by domain (e.g. `components/nav/`, `components/cards/`).
 
-**`src/data/`** — Static data, content config, mocks: `.json`/`.ts` files export arrays/objects for pages. No logic, just data.
+`src/data/`: Static data, content config, mocks: `.json`/`.ts` files export arrays/objects for pages. No logic, just data.
 
-**`src/layouts/`** — Layouts wrap pages. At minimum `BaseLayout.astro` with `<head>`, metadata, base HTML. One layout per site section when needed (e.g. `BlogLayout.astro`, `LandingLayout.astro`).
+`src/layouts/`: Layouts wrap pages. At minimum `BaseLayout.astro` with `<head>`, metadata, base HTML. One layout per site section when needed (e.g. `BlogLayout.astro`, `LandingLayout.astro`).
 
-**`src/pages/`** — Site pages; folder structure maps to routes. No complex presentation logic: pages assemble layouts + components, don't define them.
+`src/pages/`: Site pages; folder structure maps to routes. No complex presentation logic: pages assemble layouts + components, don't define them.
 
 ---
 
@@ -68,7 +68,7 @@ No `any`. Type unclear → `unknown` almost always right.
 
 ### Frontmatter
 
-Imports first, then props, then logic. No large logic blocks — complex logic → `.ts` file in `src/data/` or utility module.
+Imports first, then props, then logic. No large logic blocks; complex logic → `.ts` file in `src/data/` or utility module.
 
 ### Slots
 

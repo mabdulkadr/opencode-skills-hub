@@ -1,4 +1,0 @@
-Generated offline HTML lands here (cards-only, no external URLs):
-  site/index.html, site/days-001-030.html ... site/days-151-180.html
-Build with: python <skill>/scripts/build.py --root <workspace>
-Never hand-edit generated HTML — edit lessons, then rebuild.

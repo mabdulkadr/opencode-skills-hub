@@ -1,6 +1,6 @@
 # Icons — Canonical SVG Path Data for Enterprise Tools
 
-Every icon in every tool is an SVG `<Path>` element. Never use Segoe Fluent Icons / symbol fonts — they don't exist on Windows Server by default and look wrong in dark mode.
+Every icon in every tool is an SVG `<Path>` element. Never use Segoe Fluent Icons or symbol fonts; they don't exist on Windows Server by default and look wrong in dark mode.
 
 ---
 
@@ -227,9 +227,9 @@ $script:ThemeIcon.Data = [System.Windows.Media.Geometry]::Parse($MoonIconData)
 
 Need an icon that isn't in this set?
 
-1. Search for an SVG path at [heroicons.com](https://heroicons.com/) or [material-icons](https://fonts.google.com/icons) — both are MIT-licensed and use 24x24 viewboxes
+1. Search for an SVG path at [heroicons.com](https://heroicons.com/) or [material-icons](https://fonts.google.com/icons); both are MIT-licensed and use 24x24 viewboxes
 2. Copy the `d="..."` attribute content (the path data)
-3. Test in your tool — `<Path Data="..."/>`
+3. Test in your tool with `<Path Data="..."/>`
 4. Add the variable to this file for future reuse
 
 **Never** copy a Font Awesome / Segoe Fluent Icon as a glyph character. They don't render on Windows Server without the font installed.

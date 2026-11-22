@@ -19,7 +19,7 @@ opencode-skills-hub/
 └── docs/              # Documentation
 ```
 
-Counts are verified on disk: 42 folders under `skills/`, each containing a `SKILL.md`.
+The tree has 42 folders under `skills/`, each containing a `SKILL.md`.
 
 ## Skill anatomy
 
@@ -139,6 +139,6 @@ plugins/skill-creator/
 
 `install.ps1` and `install.sh` only copy `skills/`, `agents/`, `commands/`, and `rules/`. They do not copy:
 
-- `plugins/` — the skill-creator plugin installs through npm.
-- `opencode.jsonc` — copy it yourself if you want the sample default agent, rules glob, and `gh_grep` MCP server.
-- `docs/` and `README.md` — documentation only.
+- `plugins/`: the skill-creator plugin installs through npm.
+- `opencode.jsonc`: copy it yourself if you want the sample default agent, rules glob, and `gh_grep` MCP server.
+- `docs/` and `README.md`: documentation only.

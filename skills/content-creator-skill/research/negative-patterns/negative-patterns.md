@@ -150,7 +150,7 @@ After: نمت بنسبة ٣١٠٪ في ٢٠٢٥ — وهي أسرع شركة ت�
 ---
 
 ### Phrase: innovative / مبتكر
-**Why it's weak:** Every company calls itself innovative. It is an adjective that requires proof, so stating it without evidence backfires — if you have to say you're innovative, you probably aren't.
+**Why it's weak:** Every company calls itself innovative. It is an adjective that requires proof, so stating it without evidence backfires: if you have to say you're innovative, you probably aren't.
 **Better alternatives:** [وصف الابتكار المحدد] / حاصل على براءة اختراع / أول من يطبق [تقنية]
 **Example transformation:**
 Before: حل مبتكر يساعد الشركات على النمو
@@ -177,7 +177,7 @@ After: منصة متكاملة لإدارة دورة المشتريات — من
 ---
 
 ### Phrase: we are passionate / نحن شغوفون
-**Why it's weak:** "Passionate" has been stripped of meaning by LinkedIn culture. The Arabic "شغوف" is even worse — it feels transplanted from English and does not resonate with Middle Eastern business culture.
+**Why it's weak:** "Passionate" has been stripped of meaning by LinkedIn culture. The Arabic "شغوف" is even worse: it feels transplanted from English and does not resonate with Middle Eastern business culture.
 **Better alternatives:** [فعل ملموس يظهر الالتزام] / نكرس [مورد محدد] لـ [هدف محدد]
 **Example transformation:**
 Before: فريقنا شغوف بتقديم أفضل الحلول لعملائنا
@@ -242,7 +242,7 @@ After: التحول الرقمي ضرورة للشركات التي تريد ا�
 ---
 
 ### Phrase: يعد [منتج] واحداً من أفضل
-**Why it's weak:** A timid, hedging construction. "One of the best" suggests uncertainty — if you believe in your product, say something specific.
+**Why it's weak:** A timid, hedging construction. "One of the best" suggests uncertainty: if you believe in your product, say something specific.
 **Better alternatives:** [منتج] هو [فئة] الوحيد الذي [ميزة] / [منتج] يحقق [نتيجة]
 **Example transformation:**
 Before: يُعد نظامنا واحداً من أفضل أنظمة إدارة المخزون في المنطقة
@@ -260,7 +260,7 @@ After: منصتنا تحلل البيانات آنياً. تستخدم الذك�
 ---
 
 ### Phrase: في ظل التطورات المتسارعة / في ظل التحديات الراهنة
-**Why it's weak:** Another filler opening that delays the actual content. It is the Arabic equivalent of "in today's fast-paced world" — instantly skippable.
+**Why it's weak:** Another filler opening that delays the actual content. It is the Arabic equivalent of "in today's fast-paced world"; it is instantly skippable.
 **Better alternatives:** اذكر التطور/التحدي المحدد ثم اربطه بمنتجك مباشرة
 **Example transformation:**
 Before: في ظل التطورات المتسارعة في مجال التكنولوجيا المالية، أصبحت الحاجة إلى حلول آمنة ضرورية
@@ -471,7 +471,7 @@ After: المنصة الوحيدة التي تجمع بين تتبع المخز�
 ---
 
 ### Phrase: قوي / Powerful
-**Why it's weak:** A lazy descriptor that has been applied to everything. "نظام قوي" — what does "قوي" mean? Fast? Reliable? Feature-rich?
+**Why it's weak:** A lazy descriptor that has been applied to everything. "نظام قوي": what does "قوي" mean? Fast? Reliable? Feature-rich?
 **Better alternatives:** يعالج [مقدار] في [وقت] / يتحمل [حجم عمليات] / يوفر [ميزات محددة]
 **Example transformation:**
 Before: نظام قوي لإدارة العلاقات مع العملاء
@@ -628,7 +628,7 @@ After: نختبر كل تحديث على ١٠٠٠ سيناريو قبل الإط
 ---
 
 ### Phrase: Our mission is to [vague noble goal] / رسالتنا هي [هدف نبيل عام]
-**Why it's weak:** Most mission statements are interchangeable between companies. "تمكين الشركات" (empowering businesses), "إحداث فرق" (making a difference), "خلق قيمة" (creating value) — all empty.
+**Why it's weak:** Most mission statements are interchangeable between companies. "تمكين الشركات" (empowering businesses), "إحداث فرق" (making a difference), and "خلق قيمة" (creating value) are all empty.
 **Better alternatives:** [فعل محدد] لـ [جمهور محدد] لتحقيق [نتيجة محددة]
 **Example transformation:**
 Before: رسالتنا هي تمكين الشركات من تحقيق أقصى إمكاناتها من خلال التكنولوجيا

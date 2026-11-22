@@ -227,7 +227,7 @@ function Get-EventsInChunks {
 
 ### Memory-Efficient Aggregation
 
-Don't keep the full event objects — project to what you need early:
+Don't keep the full event objects; project to what you need early:
 
 ```powershell
 $summary = Get-WinEvent -LogName "System" -MaxEvents 10000 |

@@ -1,6 +1,6 @@
 # File Architecture — Right-Sized for Every Tool
 
-Pick the smallest structure that fits. Most admin tools are **single-file** — the modular layout is for the framework itself, not for the tools it produces.
+Pick the smallest structure that fits. Most admin tools are single file; the modular layout is for the framework itself.
 
 ---
 
@@ -28,7 +28,7 @@ Pick the smallest structure that fits. Most admin tools are **single-file** — 
 
 ## Tier 1: Single-File (Default)
 
-**For:** Most admin tools — Intune helpers, AD scripts with GUI, remote command runners, inventory collectors.
+**For:** Most admin tools: Intune helpers, AD scripts with GUI, remote command runners, and inventory collectors.
 
 ```
 📂 ProjectRoot
@@ -39,9 +39,9 @@ Pick the smallest structure that fits. Most admin tools are **single-file** — 
  └── 🖼 Screenshot.png             # for README (optional)
 ```
 
-**What goes in the single `.ps1`:** Everything — XAML inline as here-string, all functions, all event handlers, logging, STA check, ShowDialog.
+**What goes in the single `.ps1`:** Everything: XAML inline as a here-string, all functions, all event handlers, logging, the STA check, and ShowDialog.
 
-**Why this works:** Modern PowerShell ISE / VSCode handles 3000-line files without slowdown. Search is instant. No cross-file dependencies. One file to copy, one file to deploy, one file to troubleshoot.
+**Why this works:** Modern PowerShell ISE / VSCode handles 3000-line files without slowdown, and search is instant. There are no cross-file dependencies, so there is one file to copy and deploy.
 
 **When to promote to Tier 2:** When the XAML here-string alone exceeds 500 lines (signals your UI is too complex for single-file editing), or when you need the same dialog in multiple tools.
 
@@ -49,7 +49,7 @@ Pick the smallest structure that fits. Most admin tools are **single-file** — 
 
 ## Tier 2: Split XAML
 
-**For:** Tools with rich UI (multiple pages, repeated dialogs, complex DataGrids) — but still one business domain.
+**For:** Tools with rich UI (multiple pages, repeated dialogs, complex DataGrids), but still one business domain.
 
 ```
 📂 ProjectRoot
@@ -63,7 +63,7 @@ Pick the smallest structure that fits. Most admin tools are **single-file** — 
 
 **What moves out:** The XAML here-string becomes `MainWindow.xaml`, loaded via `[xml](Get-Content 'MainWindow.xaml' -Raw -Encoding UTF8)` + `XamlReader.Load()`.
 
-**What stays in the `.ps1`:** All PowerShell code — functions, event handlers, logging, STA check.
+**What stays in the `.ps1`:** All PowerShell code: functions, event handlers, logging, and the STA check.
 
 **Why this works:** XAML editors (VSCode with XML extension) give you better tag matching, validation, and preview than editing a here-string. PowerShell still gets one file to read end-to-end.
 
@@ -71,9 +71,9 @@ Pick the smallest structure that fits. Most admin tools are **single-file** — 
 
 ## Tier 3: Modular (Hybrid — Enterprise Reference)
 
-**For:** Complex GUI tools with 5+ features, persistent settings, or companion-file workflows — **not only frameworks**. This is the Enterprise GUI Framework canonical pattern.
+**For:** Complex GUI tools with 5+ features, persistent settings, or companion-file workflows, **not only frameworks**. This is the Enterprise GUI Framework canonical pattern.
 
-**Enterprise modular implementation:**  — every new complex GUI tool must mirror its structure, embedded XAML, console-hide, and settings persistence. Use **Hybrid rule**: Tier 1 for simple single-workflow tools, Tier 3 (Enterprise GUI Framework-style) for complex tools.
+**Enterprise modular implementation:**  Every new complex GUI tool must mirror its structure, embedded XAML, console-hide, and settings persistence. Use **Hybrid rule**: Tier 1 for simple single-workflow tools, Tier 3 (Enterprise GUI Framework-style) for complex tools.
 
 ```
 📂 ProjectRoot                          # Enterprise GUI Framework example
@@ -102,15 +102,15 @@ Pick the smallest structure that fits. Most admin tools are **single-file** — 
 
 **Embedded XAML:** Build step `scripts/Embed-Xaml.ps1` GZip+Base64-encodes `xaml/MainWindow.xaml` into `$script:EmbeddedXaml` in `src/UiLoader.ps1`. At runtime `Get-EmbeddedXaml` decompresses; if missing, falls back to `xaml/*.xaml`. This guarantees the tool never loses its UI and supports single-file distribution.
 
-**Console hide:** `Enterprise GUI Framework.ps1` uses P/Invoke `GetConsoleWindow` + `ShowWindow(0)` to hide the PowerShell console flash before WPF shows — copy this verbatim for every GUI tool.
+**Console hide:** `Enterprise GUI Framework.ps1` uses P/Invoke `GetConsoleWindow` + `ShowWindow(0)` to hide the PowerShell console flash before WPF shows; copy this verbatim for every GUI tool.
 
 **When to reach Tier 3 (Hybrid):**
 
 - You are building a **framework** that produces other tools
-- **OR** GUI has **5+ distinct features** with settings persistence, drag-drop, or companion-file bundling (Enterprise GUI Framework case) — use Tier 3 even for single audience
+- **OR** GUI has **5+ distinct features** with settings persistence, drag-drop, or companion-file bundling (Enterprise GUI Framework case); use Tier 3 even for a single audience
 - You need **per-feature unit tests** in isolation
 
-**Don't reach Tier 3 for:** A single-workflow helpdesk tool with 2-3 buttons and no persistent settings — Tier 1 is still correct.
+**Don't reach Tier 3 for:** A single-workflow helpdesk tool with 2-3 buttons and no persistent settings; Tier 1 is still correct.
 
 ---
 

@@ -20,7 +20,7 @@ Use this skill when you:
 ## Principles
 
 ### 1. A Brand Is More Than a Logo
-Branding encompasses design, communication, service, and behavior. Everything shapes the brand.
+Branding encompasses design, communication, service, and behavior.
 
 ### 2. Consistency Builds Trust
 A brand is built through continuous, consistent communication over an extended period. Inconsistency destroys trust.
@@ -29,7 +29,7 @@ A brand is built through continuous, consistent communication over an extended p
 Every company must clearly define what sets it apart from the competition. Without positioning, the offering is interchangeable.
 
 ### 4. Brands Are Formed in People's Minds
-The company does not define the brand — the audience's perception does. Branding actively steers that perception.
+The company does not define the brand; the audience's perception does. Branding actively steers that perception.
 
 ### 5. Authenticity Over Staging
 Show real people, real work, real results. Disingenuous portrayals lead to disappointment.
@@ -44,7 +44,7 @@ Show real people, real work, real results. Disingenuous portrayals lead to disap
 ### DO: Define the Brand Core
 - DEFINE 3-5 core values for the brand.
 - FORMULATE a brand story: Why does the company exist? What problem does it solve?
-- DESCRIBE the brand personality: If the brand were a person — how would it speak?
+- DESCRIBE the brand personality: If the brand were a person, how would it speak?
 
 ### DO: Implement Corporate Design Consistently
 - CREATE a design system with defined colors, fonts, spacing, and components.

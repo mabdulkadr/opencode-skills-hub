@@ -54,13 +54,13 @@ A complete briefing contains:
 Review every briefing for contradictions, gaps, and implicit assumptions.
 
 ### DO: Follow the 7 Steps of the Design Process
-1. **Briefing and Research** — Clarify requirements, gather data, analyze competition.
-2. **Strategy and Concept** — Positioning, information architecture, content strategy.
-3. **Wireframing** — Structural layouts without visual design. Focus on hierarchy and user flow.
-4. **Visual Design** — Colors, typography, imagery, design grid.
-5. **Prototyping** — Interactive prototypes for real user flows.
-6. **Review and Testing** — Usability tests, accessibility checks, stakeholder feedback.
-7. **Handoff and Documentation** — Structured delivery with style guide and specifications.
+1. Briefing and Research: Clarify requirements, gather data, analyze competition.
+2. Strategy and Concept: Positioning, information architecture, content strategy.
+3. Wireframing: Structural layouts without visual design. Focus on hierarchy and user flow.
+4. Visual Design: Colors, typography, imagery, design grid.
+5. Prototyping: Interactive prototypes for real user flows.
+6. Review and Testing: Usability tests, accessibility checks, stakeholder feedback.
+7. Handoff and Documentation: Structured delivery with style guide and specifications.
 
 ### DO: Use Moodboards as a Decision-Making Tool
 - CREATE at least 2 visually distinct directions.
@@ -140,9 +140,9 @@ Continuously adding new requirements during the process. **Solution:** Lock scop
 
 ## Cross-References
 
-- `customer-journey` — The journey defines which user flows the design must address
-- `ai-design-workflow` — AI tools support multiple phases of the process
-- `landing-pages` — Landing pages follow the same process with a focus on conversion
-- `website-audit` — Audit and relaunch initiate the design process with analysis
-- `branding-identity` — Brand strategy informs the visual design
-- `webdesign-review` — Review as quality assurance at the end of the process
+- `customer-journey`: The journey defines which user flows the design must address
+- `ai-design-workflow`: AI tools support multiple phases of the process
+- `landing-pages`: Landing pages follow the same process with a focus on conversion
+- `website-audit`: Audit and relaunch initiate the design process with analysis
+- `branding-identity`: Brand strategy informs the visual design
+- `webdesign-review`: Review as quality assurance at the end of the process

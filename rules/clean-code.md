@@ -6,7 +6,7 @@ Global, language-agnostic clean-code baseline. Applies every file any agent writ
 
 Precedence: project conventions (`AGENTS.md`, linter config, existing code style) win **only** when stricter. Doubt → this file wins.
 
-**Prime directive:** write code tired engineer can read at 3am and change in 6 months. Boring beats clever.
+Prime directive: write code tired engineer can read at 3am and change in 6 months. Boring beats clever.
 
 ---
 
@@ -38,7 +38,7 @@ Precedence: project conventions (`AGENTS.md`, linter config, existing code style
 - Document non-obvious context: business rules, invariants, workarounds, decisions that look wrong but aren't.
 - No commented-out code, changelog comments, author tags.
 - Public/non-trivial API → short docstring: purpose, params, returns, errors.
-- `TODO` only as `// TODO(owner): reason` — never substitute for finishing work.
+- `TODO` only as `// TODO(owner): reason`; never substitute for finishing work.
 - Stale comment worse than no comment. Update or delete with code.
 
 ## 4. Error handling
@@ -74,7 +74,7 @@ Precedence: project conventions (`AGENTS.md`, linter config, existing code style
 
 - Separate presentation, business logic, data access. UI no business rules; controllers no SQL; domain logic framework-agnostic.
 - Organize by feature/domain past trivial size.
-- Dependencies point inward. No cycles — two modules needing each other = missing abstraction.
+- Dependencies point inward. No cycles; two modules needing each other = missing abstraction.
 - Cross module boundaries only through contracts; don't reach internals.
 - Wrap multi-step writes in transaction.
 - Config from env/config files, validated at startup. Never hardcoded per environment.
@@ -99,7 +99,7 @@ Precedence: project conventions (`AGENTS.md`, linter config, existing code style
 - Cover edge cases: empty, null, boundary, duplicate, unauthorized, timeout.
 - Tests deterministic, independent, fast. No sleeps or real network in unit tests.
 - Mock external deps in unit tests; real deps (or containers) in integration.
-- Flaky test fixed or deleted — never ignored.
+- Flaky test fixed or deleted; never ignored.
 - Test name states behavior + condition. Arrange / act / assert.
 - Don't chase 100%; cover logic that can break.
 
@@ -142,7 +142,7 @@ Precedence: project conventions (`AGENTS.md`, linter config, existing code style
 - [ ] No secrets, no sensitive data in logs
 - [ ] Docs/README updated if behavior or setup changed
 
-## 14. Red flags — reject these
+## 14. Red flags: reject these
 
 - `utils.ts` / `helpers.ts` dumping grounds
 - God objects, 500-line components, deep nesting

@@ -90,7 +90,7 @@ What is the user asking for?
 | Mentions WPF, GUI, XAML, dashboard | ❌ | ❌ (Type 1) |
 | Just says "PowerShell script" with no context | ❌ | ✅ (default to general) |
 
-**When ambiguous, ask the user.** A script that uses Graph API to query Entra ID for a WPF dashboard is Type 1 (WPF tool) that happens to call Graph — not Type 2.
+**When ambiguous, ask the user.** A script that uses Graph API to query Entra ID for a WPF dashboard is Type 1 (a WPF tool that calls Graph), not Type 2.
 
 ---
 
@@ -110,13 +110,13 @@ These conventions are unified across every reference file. When a reference cont
 | **Graph pagination** | In background jobs (Pattern B) | `Get-MgGraphAllPages` (`scripts/Get-MgGraphAllPages.ps1`) | Same, if Graph is used |
 | **Graph auth** | Interactive (user context) | Per context — `scripts/Connect-GraphAuth.ps1` | Per context |
 
-**Why this table exists:** five reference files previously shipped different log paths and function names for the same concept. Operators troubleshooting a fleet found logs in three different locations depending on which file the model had read. One table, one convention, one place to look.
+**Why this table exists:** five reference files previously shipped different log paths and function names for the same concept. Operators troubleshooting a fleet found logs in three different locations depending on which file the model had read. This table gives them one place to look.
 
 ---
 
 ## Identity Lock — Names You Copy, Never Invent
 
-Long-context models drift: they write a 1,400-line GUI and quietly mint `PrimaryButtonStyle`, `ColorBg`, or `StatusText` instead of the canonical identifiers. Those tools *run*, so the drift ships silently — until theme switching breaks, shared theming tooling misses, or a reviewer rejects the tool. Treat these names as a fixed API. If a name you are about to type is not in this table, stop and re-open the canonical reference instead of inventing an alias.
+Long-context models drift: they write a 1,400-line GUI and quietly mint `PrimaryButtonStyle`, `ColorBg`, or `StatusText` instead of the canonical identifiers. Those tools run, so the drift ships unnoticed until theme switching breaks, shared theming tooling misses a control, or a reviewer rejects the tool. Treat these names as a fixed API. If a name you are about to type is not in this table, stop and re-open the canonical reference instead of inventing an alias.
 
 | Category | Canonical identifiers (exact spelling) |
 |----------|----------------------------------------|
@@ -169,7 +169,7 @@ Every script and tool built with this skill is tested against the following ente
 
 ## The Right-Sized Architecture (Choose by Tool Size)
 
-Pick the smallest structure that fits. Most admin tools are **single-file** — the modular layout is for the framework itself, not for the tools it produces.
+Pick the smallest structure that fits. Most admin tools are single-file; the modular layout is for the framework itself.
 
 | Tier | When | Files |
 |------|------|-------|
@@ -177,7 +177,7 @@ Pick the smallest structure that fits. Most admin tools are **single-file** — 
 | **2. Split XAML** | Long XAML (>500 lines) or repeated dialogs | 6-7 files, XAML in `.xaml` |
 | **3. Modular** | Complex GUI (5+ features, settings, drag-drop) OR frameworks | 15-25 files, embedded XAML + `src/` + `config/` |
 
-**Hybrid rule:** Tier 1 for simple single-workflow tools, **Tier 3 Enterprise patterns-style for complex GUI** even with one audience. Enterprise patterns () is the canonical GUI reference — embedded GZip+Base64 XAML, P/Invoke console-hide, `src/` modular, `%APPDATA%` settings. See `references/file-architecture.md` (Tier 3 Enterprise patterns).
+**Hybrid rule:** Tier 1 for simple single-workflow tools, **Tier 3 Enterprise patterns-style for complex GUI** even with one audience. Enterprise patterns () is the canonical GUI reference: embedded GZip+Base64 XAML, P/Invoke console-hide, `src/` modular, `%APPDATA%` settings. See `references/file-architecture.md` (Tier 3 Enterprise patterns).
 
 **The 80% rule:** Use Tier 1 for 80% of simple tools. Complex GUI → Tier 3.
 
@@ -219,7 +219,7 @@ Every tool needs the same primitives. Read the pattern reference for the exact i
 
 ## The Design System — Tailwind Slate
 
-Every color, every spacing value, every font size is defined as a **token**. The design system lives in `Window.Resources` and gets overridden by `Set-Theme`.
+Every color, spacing value, and font size is defined as a token. The design system lives in `Window.Resources`, and `Set-Theme` overrides it.
 
 Core tokens (11 shown) + full set in `references/design-tokens.md`:
 
@@ -237,7 +237,7 @@ Spacing: `Card Padding=18`, `Card CornerRadius=14`, `Button CornerRadius=8`, `Bu
 
 ## The 19 Required XAML Styles
 
-Every `MainWindow.xaml` MUST define these styles in `Window.Resources`. They are the visual identity of every tool — change them and you've broken the design language.
+Every `MainWindow.xaml` MUST define these styles in `Window.Resources`. They are the visual identity of every tool; change them and you break the design language.
 
 | Style | Target | Purpose |
 |-------|--------|---------|
@@ -261,7 +261,7 @@ Every `MainWindow.xaml` MUST define these styles in `Window.Resources`. They are
 | `LiveMessageCenterBox` | RichTextBox | 140px, dark terminal background (`#1E293B`) for streaming logs |
 | `SessionCard` | Border | Sidebar session details card with elevation pill |
 
-**Critical:** Cards are STATIC. No `IsMouseOver` triggers — only `<Button>` elements get hover via their ControlTemplate, plus ONE sanctioned exception: `StatCard` KPI tiles use a border-highlight hover trigger. Read `references/xaml-styles.md` for the complete XAML for every style.
+**Critical:** Cards are STATIC. No `IsMouseOver` triggers. Only `<Button>` elements get hover through their ControlTemplate, plus ONE sanctioned exception: `StatCard` KPI tiles use a border-highlight hover trigger. Read `references/xaml-styles.md` for the complete XAML for every style.
 
 ---
 
@@ -281,7 +281,7 @@ Every `MainWindow.xaml` MUST define these styles in `Window.Resources`. They are
 Add-LogLine -Message "Text" -Level 'INFO'
 ```
 
-`Add-LogLine` adds to the log, writes to the file log, updates the status bar, and emits to console — in that order. The consecutive-duplicate guard (`$script:lastLogKey`) drops immediate duplicate lines so repeated operations don't flood the log. Canonical implementations: `scripts/Add-LogLine.ps1` (GUI) and `scripts/Write-Log.ps1` (CLI). Never invent a third logging function. The colors above are fixed and identical in console output and the GUI Message Center RichTextBox.
+`Add-LogLine` adds to the log, writes to the file log, updates the status bar, and emits to the console in that order. The consecutive-duplicate guard (`$script:lastLogKey`) drops immediate duplicate lines so repeated operations don't flood the log. Canonical implementations: `scripts/Add-LogLine.ps1` (GUI) and `scripts/Write-Log.ps1` (CLI). Never invent a third logging function. The colors above are fixed and identical in console output and the GUI Message Center RichTextBox.
 
 ##### CLI `Write-Summary` — the canonical end-of-run console block
 
@@ -294,7 +294,7 @@ Every general CLI renders the same summary before `Finish-Script` via the canoni
   localhost   OK        no
 ```
 
-Status color: Green (OK) / Yellow (SKIPPED) / Red (FAILED). Counts are computed *inside* the helper — do not recompute in MAIN or hand-build a second line/table (that duplicates the helper and drifts output). `Test-ToolCompliance.ps1` flags a hand-rolled block (WARN on pre-helper files, FAIL when both exist); extra detail sections print after `Write-Summary`.
+Status color: Green (OK) / Yellow (SKIPPED) / Red (FAILED). Counts are computed inside the helper. Do not recompute them in MAIN or hand-build a second line/table; that duplicates the helper and drifts output. `Test-ToolCompliance.ps1` flags a hand-rolled block (WARN on pre-helper files, FAIL when both exist); extra detail sections print after `Write-Summary`.
 
 ### Empty-Message Spacer Rule (Pitfall 30 — mandatory)
 
@@ -310,18 +310,18 @@ Every logging helper MUST therefore declare:
 if ([string]::IsNullOrEmpty($Message)) { return }
 ```
 
-`Finish-Script -Message` stays Mandatory (it is a true summary line, never a spacer). This is enforced by `Test-ToolCompliance.ps1` (Pitfall 30 gate) — any local `Write-Log`/`Add-LogLine`/`Write-RemediationLog`/`Write-Toast` with `Mandatory = $true` on `Message` fails the gate before delivery.
+`Finish-Script -Message` stays Mandatory (it is a true summary line, never a spacer). This is enforced by `Test-ToolCompliance.ps1` (Pitfall 30 gate): any local `Write-Log`/`Add-LogLine`/`Write-RemediationLog`/`Write-Toast` with `Mandatory = $true` on `Message` fails the gate before delivery.
 
 ---
 
 ## The HTML Design System — IBM Carbon Dark (Canonical for All HTML Output)
 
-**Every HTML report produced by any tool in this skill MUST use the IBM Carbon Design System (Dark theme).** WPF GUI tools use Tailwind Slate (see above); HTML output uses Carbon Dark. Two surfaces, two design systems, no overlap.
+**Every HTML report produced by any tool in this skill MUST use the IBM Carbon Design System (Dark theme).** WPF GUI tools use Tailwind Slate (see above); HTML output uses Carbon Dark. Keep the two design systems separate.
 
 ### Why Carbon Dark for HTML
 
-- **Operator-deliverable reports** are emailed, archived, and printed; Carbon is the IBM enterprise standard for executive dashboards and reads identically on every browser and printed page.
-- The reference design (`Intune-Reporting-Tools/Export-IntuneDashboard/IntuneDashboard_*.html`) is the production-proven shape — KPI tiles, donut/bar charts, structured tables, footer with run metadata, disclaimer modal.
+- Operator-deliverable reports are emailed, archived, and printed; Carbon is the IBM enterprise standard for executive dashboards and reads identically on every browser and printed page.
+- The reference design (`Intune-Reporting-Tools/Export-IntuneDashboard/IntuneDashboard_*.html`) is the production-proven shape: KPI tiles, donut/bar charts, structured tables, footer with run metadata, disclaimer modal.
 - It is self-contained: a `<style>` block with IBM Plex Sans/Mono + Carbon tokens, plus optional inline SVG and vanilla JS. No CDN runtime dependency that can fail offline.
 
 ### Canonical Tokens (Copy, Never Invent)
@@ -344,11 +344,11 @@ if ([string]::IsNullOrEmpty($Message)) { return }
 | `--cds-purple` | `#8a3ffc` | Secondary accent |
 | `--cds-magenta` | `#d02670` | Tertiary accent |
 
-**Never write hex codes inline** when a token exists. Print styles are part of the template — `@media print` inverts to white background automatically.
+**Never write hex codes inline** when a token exists. Print styles are part of the template: `@media print` inverts to a white background automatically.
 
 ### Canonical Helpers (Five Functions, One Source of Truth)
 
-The complete HTML rendering toolkit lives at **`templates/EnterpriseHtmlReport.template.ps1`** (canonical, copy VERBATIM into every script that emits HTML — or dot-source it). The five reserved function names:
+The complete HTML rendering toolkit lives at **`templates/EnterpriseHtmlReport.template.ps1`** (canonical; copy it VERBATIM into every script that emits HTML, or dot-source it). The five reserved function names:
 
 | Function | Returns | Purpose |
 |----------|---------|---------|
@@ -369,7 +369,7 @@ Export-StandardHtmlReport -OutputPath $path -Title "Compliance" -Subtitle "Tenan
 
 ### Body Layout (between Open and Footer)
 
-Build the body with these sanctioned HTML patterns — never invent ad-hoc CSS:
+Build the body with these sanctioned HTML patterns. Do not invent ad-hoc CSS:
 
 ```html
 <div class="section-title">📊 Compliance Breakdown</div>
@@ -387,17 +387,17 @@ Build the body with these sanctioned HTML patterns — never invent ad-hoc CSS:
 </div>
 ```
 
-Sanctioned classes: `.section-title`, `.grid-2`, `.card`, `.kpi-row`, `.kpi-card`, `.bar-chart`, `.legend`, `.badge.critical|high|medium|low`, `.progress-bar`, `.footer`, `.disclaimer-box`. Need a new pattern? Extend by copying the closest existing class — never invent a new one.
+Sanctioned classes: `.section-title`, `.grid-2`, `.card`, `.kpi-row`, `.kpi-card`, `.bar-chart`, `.legend`, `.badge.critical|high|medium|low`, `.progress-bar`, `.footer`, `.disclaimer-box`. Need a new pattern? Extend by copying the closest existing class; do not invent a new one.
 
 ### Migration Rule (Identity Lock)
 
-If a script already emits HTML and uses a different design, **migrate it to Carbon** using the canonical helpers — do not maintain parallel design systems. The audit found 10 HTML-emitting scripts; 9 already use Carbon via `Get-StandardHtml*`, one outlier (`Export-IntuneDashboard.ps1`) still has bespoke HTML and is the canonical migration target.
+If a script already emits HTML and uses a different design, **migrate it to Carbon** using the canonical helpers; do not maintain parallel design systems. The audit found 10 HTML-emitting scripts; 9 already use Carbon via `Get-StandardHtml*`, one outlier (`Export-IntuneDashboard.ps1`) still has bespoke HTML and is the canonical migration target.
 
 ### HTML Fidelity Audit Protocol
 
 When auditing N HTML-emitting scripts:
 
-1. **Classify before fixing** — run a full triage pass and output a sorted `| # | Script | Verdict | Issue |` table (FAIL → WEAK → PASS) before any edits.
+1. **Classify before fixing**: run a full triage pass and output a sorted `| # | Script | Verdict | Issue |` table (FAIL → WEAK → PASS) before any edits.
 2. **Scoring rubric (4 metrics):** KPI tiles bound to real data (+1), body built from `$rows | ForEach-Object` dynamically (+1), ≥5 rows of script-specific detail (+1), charts derived from same data (+1). PASS=3–4, WEAK=1–2, FAIL=0.
 3. **N > 3 files → task agent** with a precise output spec; N ≤ 3 → inline read+edit.
 4. **Audit scope discipline:** fix only the audited concern (HTML fidelity). Log pre-existing console/logic bugs as separate follow-ups.
@@ -471,7 +471,7 @@ try { } finally { Write-Progress -Activity 'Collecting managed devices' -Complet
 
 ### Three Rules (Identity Lock)
 
-1. **One `Activity` label per logical phase.** Do not change the activity string mid-loop — that resets the bar. New phase → new activity string.
+1. **One `Activity` label per logical phase.** Do not change the activity string mid-loop; that resets the bar. New phase → new activity string.
 2. **Always call `-Completed` in a `finally` block.** Skipping it leaves the progress bar hanging in the console for 30+ seconds after the script ends.
 3. **`[Math]::Max($total, 1)` guards the divide-by-zero** when the collection is empty (otherwise the bar shows `NaN%`).
 
@@ -524,7 +524,7 @@ if (-not (Test-Path -LiteralPath $OutputPath)) {
 
 ### Don't Create `Logs\` Unless You Log
 
-If the script uses `Initialize-Log`, that helper creates its own folder (currently `%ProgramData%\<Tool>\Logs\` for the General type and `<SystemDrive>\IntuneLogs\<Tool>\` for the Intune type). Do **not** add an extra `Logs\` folder beside the script just for symmetry — let the logging helper own that decision. Only add a beside-script `Logs\` when the script writes plain-text log files outside of `Initialize-Log`.
+If the script uses `Initialize-Log`, that helper creates its own folder (currently `%ProgramData%\<Tool>\Logs\` for the General type and `<SystemDrive>\IntuneLogs\<Tool>\` for the Intune type). Do **not** add an extra `Logs\` folder beside the script just for symmetry; let the logging helper own that decision. Only add a beside-script `Logs\` when the script writes plain-text log files outside of `Initialize-Log`.
 
 ### Dual CSV + Fancy HTML for Reporting Scripts
 
@@ -575,7 +575,7 @@ if ($htmlDisp) { Write-Host "  HTML: $($htmlDisp.FullName) ($($htmlDisp.Length) 
 
 ### Template Library — Copy First, Customize Second (TEMPLATE LOCK)
 
-Every deliverable starts from a copy-paste-ready scaffold in `templates/` — never from an empty file:
+Every deliverable starts from a copy-paste-ready scaffold in `templates/`, never from an empty file:
 
 | Deliverable | Copy |
 |-------------|------|
@@ -587,18 +587,18 @@ Every deliverable starts from a copy-paste-ready scaffold in `templates/` — ne
 | READMEs (4 variants) | `templates/readme-*.template.md` |
 
 **LOCK rules:** keep the skeleton (header order, logging block, exit paths, guards,
-lifecycle) intact — extend it, never rewrite it; customize only `[Placeholders]` and
-`TODO:` regions; every generated `.ps1` must pass `scripts/Test-ToolCompliance.ps1`
-(the templates themselves pass it — staying close to the template IS compliance).
+lifecycle) intact; extend it, never rewrite it. Customize only `[Placeholders]` and
+`TODO:` regions. Every generated `.ps1` must pass `scripts/Test-ToolCompliance.ps1`.
+The templates themselves pass it, so staying close to one keeps you compliant.
 Full guide: `templates/README.md`.
 
 ### Tier 1 (Single-File - Most Tools)
 
-0. **Pre-flight gate (do not skip, especially deep into a long session):** re-open `references/xaml-styles.md`, `references/design-tokens.md`, `references/icons.md` (GUI) or the relevant CLI reference (CLI) *immediately before writing code*. Styles, tokens, icons, and logging helpers are COPIED from these files verbatim. Writing them from memory is how naming drift happens - invented style keys, symbol-font glyphs, off-canon colors - even when the rules were read earlier in the session.
-0b. **Copy the template:** start from `templates/wpf-gui-tool.template.ps1` (it already contains the header shape below, Add-LogLine verbatim, all 19 styles, theme init, guards, and lifecycle) — then fill `[Placeholders]` and `TODO:` regions only.
+0. **Pre-flight gate (do not skip, especially deep into a long session):** re-open `references/xaml-styles.md`, `references/design-tokens.md`, `references/icons.md` (GUI) or the relevant CLI reference (CLI) *immediately before writing code*. Styles, tokens, icons, and logging helpers are COPIED from these files verbatim. Writing them from memory causes naming drift: invented style keys, symbol-font glyphs, off-canon colors. That can happen even when the rules were read earlier in the session.
+0b. **Copy the template:** start from `templates/wpf-gui-tool.template.ps1` (it already contains the header shape below, Add-LogLine verbatim, all 19 styles, theme init, guards, and lifecycle), then fill `[Placeholders]` and `TODO:` regions only.
 1. If building without the template: create `[ToolName].ps1` with the canonical header (TITLE, SYNOPSIS, DESCRIPTION, PARAMETER, EXAMPLE, NOTES)
 2. Add the required building blocks in this order:
-   - `#Requires -Version 5.1` (immediately after the help block from step 1 - never before it) + `[CmdletBinding()]` + params
+   - `#Requires -Version 5.1` (immediately after the help block from step 1; never before it) + `[CmdletBinding()]` + params
    - `$ErrorActionPreference = 'Stop'`
    - STA check + auto-restart
    - `Add-LogLine` function (console + file)
@@ -635,18 +635,18 @@ Before writing, classify the script using the **Script Type Routing** decision t
 
 ### Intune Best Practices
 
-**Only apply these patterns when the script is Type 2 (Intune/Graph).** General CLI scripts (Type 3) do NOT use these patterns — they use standard PowerShell headers and logging.
+**Only apply these patterns when the script is Type 2 (Intune/Graph).** General CLI scripts (Type 3) do NOT use these patterns; they use standard PowerShell headers and logging.
 
-The complete production-tested pattern set lives in `references/intune-patterns.md` (headers, module checks, Graph pagination/retry, remediation pairs, always-run detection, config-driven execution, remote diagnostics) and `references/notification-patterns.md` (scheduled email alerts). Read the relevant file before writing a Type 2 script — this section only lists the rules that must never be violated:
+The complete production-tested pattern set lives in `references/intune-patterns.md` (headers, module checks, Graph pagination/retry, remediation pairs, always-run detection, config-driven execution, remote diagnostics) and `references/notification-patterns.md` (scheduled email alerts). Read the relevant file before writing a Type 2 script. This section lists only the rules that must never be violated:
 
-- **Exit codes are canonical:** Detection = `0` compliant / `1` non-compliant / `2` script error. Remediation = `0` success / `1` failure / `2` script error. Never use `1` for a script error — Intune would treat a crashed detection as non-compliant and run remediation needlessly.
-- **Module checks first:** Validate `Microsoft.Graph.Authentication` (and any other modules) exist before importing — never fail halfway through execution.
-- **Pagination is never manual:** Use the canonical `Get-MgGraphAllPages` (in `scripts/Get-MgGraphAllPages.ps1`) for any Graph API call that can return more than one page. Wrap retryable calls in `Invoke-MgGraphRequestWithRetry` for 429/503.
+- Exit codes are canonical: Detection = `0` compliant / `1` non-compliant / `2` script error. Remediation = `0` success / `1` failure / `2` script error. Never use `1` for a script error; Intune would treat a crashed detection as non-compliant and run remediation needlessly.
+- Module checks first: validate `Microsoft.Graph.Authentication` (and any other modules) exist before importing; never fail halfway through execution.
+- Pagination is never manual: use the canonical `Get-MgGraphAllPages` (in `scripts/Get-MgGraphAllPages.ps1`) for any Graph API call that can return more than one page. Wrap retryable calls in `Invoke-MgGraphRequestWithRetry` for 429/503.
 - **Auth matches context:** Managed Identity in Azure Automation, interactive (or MgGraphCommunity for RDP/CI-CD) locally, Client Credentials (App Registration) for unattended service contexts. See `scripts/Connect-GraphAuth.ps1`.
 - **Remediation scripts are paired** (detection + action), idempotent, and verify the fix after applying it (pre-check → action → post-verify with JSON output).
 - **Log to `<SystemDrive>\IntuneLogs\<SolutionName>\`** with `Initialize-Log` + `Write-Log` (canonical in `scripts/Write-Log.ps1`); use `Finish-Script` for every exit point.
-- **`.PERMISSIONS` reflects what the script actually calls.** A script that runs locally in SYSTEM context (`ipconfig /flushdns`, service restarts, disk cleanup) needs **no Graph permission** — declare `None (local SYSTEM context)` instead of inventing Graph scopes. Only scripts that call Graph API list real permissions.
-- **Notification scripts** (`.EXECUTION RunbookOnly`, `.OUTPUT Email`) run as Azure Automation runbooks with Managed Identity, send HTML email via Graph Mail API with `saveToSentItems = $false` — see `references/notification-patterns.md`.
+- **`.PERMISSIONS` reflects what the script actually calls.** A script that runs locally in SYSTEM context (`ipconfig /flushdns`, service restarts, disk cleanup) needs no Graph permission. Declare `None (local SYSTEM context)` instead of inventing Graph scopes. Only scripts that call Graph API list real permissions.
+- **Notification scripts** (`.EXECUTION RunbookOnly`, `.OUTPUT Email`) run as Azure Automation runbooks with Managed Identity, send HTML email via Graph Mail API with `saveToSentItems = $false`; see `references/notification-patterns.md`.
 
 ---
 
@@ -695,11 +695,11 @@ For the **full PS 5.1 pitfalls list** (Thumb.CornerRadius, Join-Path, Pester 3.4
 
 ## Writing Professional README.md Files
 
-Every PowerShell project needs a clear README. **Canonical templates live in `references/readme-template.md`** (4 variants: Basic, Intune Remediation, WPF GUI, CLI Script — ~70% shared).
+Every PowerShell project needs a clear README. **Canonical templates live in `references/readme-template.md`** (4 variants: Basic, Intune Remediation, WPF GUI, CLI Script; about 70% shared).
 
-**Use:** pick the variant matching script type, **paste the variant template as the README's starting skeleton**, then replace `[Placeholders]` — never write a README from scratch. The template is the **minimum baseline** — every README must contain *at least* those sections in that order; you **MAY extend** with additional project-specific sections when the project warrants it (e.g., Architecture, Troubleshooting, FAQ, Changelog, Screenshots, Performance, Security Considerations) provided they follow the same design language (shields.io badges, emoji headings, tables for structured data, ```powershell/```text fences, `---` separators). Keep core order: Badges → Overview → Features → Structure → Scripts (Purpose/Logic/Exit Codes/Example) → Requirements → Intune Deployment (if pair) → Typical Workflow → [Optional Extended Sections] → Operational Notes → Disclaimer (mandatory: as-is, test in staging) → License → Author. Never remove or reorder mandatory sections to make room for extras.
+**Use:** pick the variant matching script type, **paste the variant template as the README's starting skeleton**, then replace `[Placeholders]`. Do not write a README from scratch. The template is the **minimum baseline**: every README must contain at least those sections in that order. You **MAY extend** with additional project-specific sections when the project warrants it (e.g., Architecture, Troubleshooting, FAQ, Changelog, Screenshots, Performance, Security Considerations) provided they follow the same design language (shields.io badges, emoji headings, tables for structured data, ```powershell/```text fences, `---` separators). Keep core order: Badges → Overview → Features → Structure → Scripts (Purpose/Logic/Exit Codes/Example) → Requirements → Intune Deployment (if pair) → Typical Workflow → [Optional Extended Sections] → Operational Notes → Disclaimer (mandatory: as-is, test in staging) → License → Author. Never remove or reorder mandatory sections to make room for extras.
 
-**Smart sectioning — sections are conditional on script type, never fixed.** Include a section only when its row says ✅:
+**Smart sectioning: sections are conditional on script type, never fixed.** Include a section only when its row says ✅:
 
 | Section | Type 1 GUI | Type 2 Intune pair | Type 3 CLI |
 |---------|:---:|:---:|:---:|
@@ -776,7 +776,7 @@ These 33 non-negotiable rules are extracted from `lessons-learned.md` because th
 
 ## Lessons Learned Register
 
-This skill learns from its own mistakes. The **Lessons Learned Register** lives INSIDE the skill at `<skill-dir>/lessons-learned.md` — it is global and applies to every script, tool, and project the skill touches. Do not create project-local copies; one shared register means a lesson learned in one project protects every future build.
+This skill learns from its own mistakes. The **Lessons Learned Register** lives INSIDE the skill at `<skill-dir>/lessons-learned.md`. It is global and applies to every script, tool, and project the skill touches. Keep one shared register; a lesson learned in one project then protects every future build.
 
 **Before building:** read the register from the skill directory. If a listed lesson applies to the current task, follow its rule.
 
@@ -796,7 +796,7 @@ This skill learns from its own mistakes. The **Lessons Learned Register** lives 
 - **Rule:** the reusable rule, imperative
 ```
 
-**Rules:** dedupe against this register and `references/pitfalls.md` before appending; entries are evidence-based (no speculation); one line per field. When the same rule has prevented a mistake twice across sessions, propose promoting it into `references/pitfalls.md` (ask the user — never edit reference files unilaterally).
+**Rules:** dedupe against this register and `references/pitfalls.md` before appending; entries are evidence-based (no speculation); one line per field. When the same rule has prevented a mistake twice across sessions, propose promoting it into `references/pitfalls.md` (ask the user; never edit reference files unilaterally).
 
 ---
 
@@ -836,7 +836,7 @@ Then:
 
 This skill encodes the **canonical enterprise design standard** for production-grade tools. It pairs with:
 
-- **`powershell-expert`** — Use for general PowerShell best practices NOT covered here: deep `CmdletBinding` parameter sets, `ShouldProcess` (`-WhatIf`/`-Confirm`), `PSResourceGet`, Windows Forms for simple dialogs, Pester testing, live verification against PowerShell Gallery. The two skills are complementary: `powershell-expert` covers *how to write PowerShell well*, this skill covers *what every tool must look and behave like*.
+- **`powershell-expert`**: Use for general PowerShell best practices NOT covered here: deep `CmdletBinding` parameter sets, `ShouldProcess` (`-WhatIf`/`-Confirm`), `PSResourceGet`, Windows Forms for simple dialogs, Pester testing, live verification against PowerShell Gallery. The two skills are complementary: `powershell-expert` covers *how to write PowerShell well*, this skill covers *what every tool must look and behave like*.
 
 ---
 

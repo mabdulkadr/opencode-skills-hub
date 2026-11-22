@@ -22,7 +22,7 @@ Overrides in one dedicated file, path per project structure (e.g. `styles/bulma-
 );
 ```
 
-No `!important` for conflicts — fix specificity upstream.
+No `!important` for conflicts; fix specificity upstream.
 
 ## Custom Classes
 
@@ -38,7 +38,7 @@ Bulma breakpoints + helpers default: use `.is-hidden-mobile`, `.is-flex-desktop`
 
 ## Columns
 
-Bulma column system (`columns` + `column`) layout backbone. Use it. Avoid raw flexbox/grid when Bulma can do job — unless design explicitly requires.
+Bulma column system (`columns` + `column`) layout backbone. Use it. Avoid raw flexbox/grid when Bulma can do job, unless design explicitly requires.
 
 ---
 

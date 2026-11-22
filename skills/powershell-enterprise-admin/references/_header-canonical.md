@@ -76,7 +76,7 @@ Never `#Requires -RunAsAdministrator`. Detect at runtime with `Test-IsElevated` 
 
 ### Why keep `#Requires -Version 5.1` at all?
 
-It is a one-line guardrail against **legacy hosts** (Windows PowerShell 2.0–4.0 on old servers/laptops) where scripts using PS3+ features (`Get-CimInstance`, `[PSCustomObject]`, `-Tail`) would otherwise die with cryptic parse errors mid-run. On any modern host it is inert and costs nothing. Deleting it removes real protection for zero gain; moving it below the header satisfies the header-first contract. This is the documented rationale — do not re-litigate or remove it in future passes.
+It is a one-line guardrail against **legacy hosts** (Windows PowerShell 2.0–4.0 on old servers/laptops) where scripts using PS3+ features (`Get-CimInstance`, `[PSCustomObject]`, `-Tail`) would otherwise die with cryptic parse errors mid-run. On any modern host it is inert and costs nothing. Deleting it removes real protection for zero gain; moving it below the header satisfies the header-first contract. This is the documented rationale; do not re-litigate or remove it in future passes.
 
 ## References
 

@@ -17,7 +17,7 @@ Two phases: **Analyze** then **Optimize**. Always show findings before touching 
    - **Runtime perf**: N+1 queries, unnecessary re-renders (React: missing memo/useMemo/useCallback, inline object/function props), blocking sync I/O, unindexed DB queries, O(n²) loops on large data.
    - **Dead code**: unused exports, unreachable branches, commented-out blocks.
    - **Build config**: missing minification, no compression (gzip/brotli), dev-only code shipped to prod.
-3. Produce findings report (in chat, concise): per issue — file:line, what's wrong, estimated impact (high/medium/low), proposed fix.
+3. Produce findings report (in chat, concise): per issue, list the file:line, what's wrong, estimated impact (high/medium/low), and proposed fix.
 4. Ask user which categories to act on if list long (use `ask_user_input_v0`), unless already said "fix everything".
 
 ## Phase 2 — Optimize
@@ -26,15 +26,15 @@ Apply fixes incrementally, one category at a time, so changes stay reviewable:
 
 - **Dedup**: extract shared logic into function/module/component; update call sites.
 - **Bundle**: replace heavy deps with lighter alternatives (only if drop-in compatible), add/adjust code-splitting or dynamic imports, fix barrel-import issues.
-- **Images**: recompress/convert via `bash_tool` (e.g. `cwebp`, `sharp`, `imagemin` if available — check what's installed first), resize to actual display dimensions, add lazy-loading attributes.
+- **Images**: recompress/convert via `bash_tool` (e.g. `cwebp`, `sharp`, `imagemin` if available; check what's installed first), resize to actual display dimensions, add lazy-loading attributes.
 - **Runtime**: apply memoization, batch queries, replace O(n²) with efficient structures/algorithms.
 - **Dead code**: remove after confirming no external references (grep whole repo first).
 
-After each category: run existing tests/build if project has them (`npm test`, `npm run build`, etc.) to confirm nothing broke. Report what changed and why, file by file, in short summary — not just "done".
+After each category: run existing tests/build if project has them (`npm test`, `npm run build`, etc.) to confirm nothing broke. Report what changed and why, file by file, in a short summary rather than just "done".
 
 ## Rules
 
-- Never guess at "optimized" behavior that changes program output — perf fixes must be behavior-preserving.
+- Never guess at "optimized" behavior that changes program output; perf fixes must be behavior-preserving.
 - Don't install new deps for a fix if native/existing solution works.
 - No test suite → flag it and proceed more conservatively (smaller diffs, manual reasoning about correctness).
 - Very large repos → sample representative files/modules first, not blind full scan; ask user for subfolder if scope unclear.

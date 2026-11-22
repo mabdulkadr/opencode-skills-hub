@@ -1,6 +1,6 @@
 # Skills Catalog
 
-Complete list of the skills shipped in this repository: **42 skills**, one folder each with a `SKILL.md`.
+Complete list of the skills shipped in this repository: 42 skills, one folder each with a `SKILL.md`.
 
 Each row lists the skill's `name` (what you use to invoke it) and the folder it lives in, plus any bundled extras. Descriptions are condensed from each `SKILL.md` frontmatter.
 
@@ -110,6 +110,6 @@ Skills are loaded by OpenCode through the `skill` tool using the frontmatter `na
 ## Notes
 
 - Descriptions here are condensed from each skill's `SKILL.md` frontmatter; the `SKILL.md` body is authoritative.
-- Some skills bundle assets (`references/`, `scripts/`, `resources/`, `assets/`, `data/`, `themes/`). Keep them next to `SKILL.md` when copying — do not flatten or copy `SKILL.md` alone.
+- Some skills bundle assets (`references/`, `scripts/`, `resources/`, `assets/`, `data/`, `themes/`). Keep them next to `SKILL.md` when copying; do not flatten or copy `SKILL.md` alone.
 - Several skills carry upstream license files; see [LICENSES.md](LICENSES.md).
 - Sources: [openskills.cc/skills](https://openskills.cc/skills), [web-dev-agent](https://github.com/Domenico-Tenace-Open-Labs/web-dev-agent), and the individual upstream authors named in each `SKILL.md`.

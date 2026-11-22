@@ -13,7 +13,7 @@ metadata:
 
 ## Overview
 
-MarkItDown is Microsoft's lightweight Python utility for turning common documents into structure-preserving Markdown. Its output is designed primarily for indexing, text analysis, search, and LLM ingestion—not high-fidelity visual reproduction.
+MarkItDown is Microsoft's lightweight Python utility for turning common documents into structure-preserving Markdown. Its output is designed primarily for indexing, text analysis, search, and LLM ingestion, not high-fidelity visual reproduction.
 
 This skill targets **MarkItDown 0.1.8**, released September 21, 2026. New code should use `result.markdown`; `result.text_content` remains only as a soft-deprecated compatibility alias.
 

@@ -63,7 +63,7 @@ cp -r rules/*    "$cfg/rules/"
 
 ## Installing a single skill
 
-Copy the whole folder, not just `SKILL.md` — some skills break without their `references/` or `scripts/`.
+Copy the whole folder, not just `SKILL.md`: some skills break without their `references/` or `scripts/`.
 
 ```powershell
 $cfg = "$env:USERPROFILE\.config\opencode"
@@ -114,7 +114,7 @@ If a skill does not appear, check that `~/.config/opencode/skills/<name>/SKILL.m
 
 ## Update
 
-Pull the repo and re-run the installer — the merge copy overwrites changed files and leaves everything else:
+Pull the repo and re-run the installer: the merge copy overwrites changed files and leaves everything else:
 
 ```powershell
 git pull; .\install.ps1 -All

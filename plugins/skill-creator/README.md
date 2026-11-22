@@ -2,7 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/opencode-skill-creator)](https://www.npmjs.com/package/opencode-skill-creator)
 
-A **skill + plugin** for [OpenCode](https://opencode.ai) that helps you create, test, and optimize other OpenCode skills.
+A skill + plugin for [OpenCode](https://opencode.ai) that helps you create, test, and optimize other OpenCode skills.
 
 This is a faithful adaptation of Anthropic's official [skill-creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator) for Claude Code, fully rewritten to work with OpenCode's extensibility mechanisms. The Python scripts from the original have been ported to TypeScript and packaged as an OpenCode plugin with custom tools.
 
@@ -212,13 +212,13 @@ The backup preserves user files and renames `SKILL.md` to `SKILL.md.backup` so O
 
 When loaded, this skill guides OpenCode through the full skill development lifecycle:
 
-1. **Analyze** the user's request and determine what kind of skill to build
-2. **Create** a well-structured skill with proper frontmatter, SKILL.md, and supporting files
-3. **Generate** an eval set of test queries (should-trigger and should-not-trigger)
-4. **Evaluate** the skill's description by testing whether it triggers correctly
-5. **Optimize** the description through iterative improvement loops
-6. **Benchmark** skill performance with variance analysis
-7. **Install** the skill to the project or global OpenCode skills directory
+1. Analyze the user's request and determine what kind of skill to build
+2. Create a well-structured skill with proper frontmatter, SKILL.md, and supporting files
+3. Generate an eval set of test queries (should-trigger and should-not-trigger)
+4. Evaluate the skill's description by testing whether it triggers correctly
+5. Optimize the description through iterative improvement loops
+6. Benchmark skill performance with variance analysis
+7. Install the skill to the project or global OpenCode skills directory
 
 ## Plugin tools
 
@@ -338,6 +338,6 @@ opencode-skill-creator/
 
 ## License
 
-Apache License 2.0 — see [LICENSE](LICENSE) for details.
+Apache License 2.0; see the [license inventory](../../docs/LICENSES.md) and `package.json` for details.
 
 Based on [anthropics/skills](https://github.com/anthropics/skills) by Anthropic.

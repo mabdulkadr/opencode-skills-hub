@@ -288,7 +288,7 @@ OR
 
 **Rule:** Introduce the Arabic term first, followed by the English in parentheses on first mention per page/section. After first mention, use the Arabic term alone if it's well-known, or use whichever is shorter/clearer.
 
-**Exception:** For widely-known English terms (API, SaaS, AI, UX), no introductory parentheses needed — use them directly:
+**Exception:** For widely-known English terms (API, SaaS, AI, UX), no introductory parentheses are needed; use them directly:
 ```
 توفر API الخاصة بنا خدمات SaaS متعددة مع تجربة UX محسّنة.
 ```
@@ -416,7 +416,7 @@ Before publishing, check:
 - Never use a period at the end of a heading
 - Avoid colons in headings — use the heading to state the benefit, then explain in the body
 
-**Data point:** 78% of analyzed Saudi tech companies use question-form H2s ("هل تبحث عن…؟") — this pattern correlates with higher time-on-page.
+**Data point:** 78% of analyzed Saudi tech companies use question-form H2s ("هل تبحث عن…؟"); this pattern correlates with higher time-on-page.
 
 ### Rule 5.2: Bold and Emphasis Usage
 
@@ -737,7 +737,7 @@ After first use: Our ERP system helps you...
 - Comma: Always use Arabic comma (،) in Arabic text, even when English terms appear
 - Question mark: Use Arabic ؟ for Arabic questions (even if they contain English terms)
 - Exclamation: Use Arabic ! (same glyph) — but use sparingly in professional content
-- Parentheses: Same in both languages. Keep consistent: don't mix (English text) with (Arabic text) — use the same style throughout
+- Parentheses: Same in both languages. Keep consistent: don't mix (English text) with (Arabic text); use the same style throughout
 
 **Edge case guidance:**
 ```

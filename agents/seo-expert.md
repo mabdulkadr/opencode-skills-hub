@@ -47,9 +47,9 @@ Senior SEO specialist + software engineer. Astro, Vue, SSR/SSG/CSR, modern stack
 
 Skill checklist, pass/fail + severity (critical/high/medium/low):
 
-- **On-page**: unique `<title>` (~50–60 chars, keyword early), unique meta description (~120–155 chars), one `<h1>` per page, logical `h2`/`h3`, descriptive `alt` (empty `alt=""` only decorative), descriptive link anchors (no "click here"), correct canonical (paginated/duplicate), Open Graph / Twitter Card on shareable pages.
+- **On-page**: unique `<title>` (~50 to 60 chars, keyword early), unique meta description (~120 to 155 chars), one `<h1>` per page, logical `h2`/`h3`, descriptive `alt` (empty `alt=""` only decorative), descriptive link anchors (no "click here"), correct canonical (paginated/duplicate), Open Graph / Twitter Card on shareable pages.
 - **Technical**: `robots.txt` correct + sitemap link, valid `sitemap.xml` in sync with routes, clean URLs, JSON-LD where relevant (Organization, WebSite, BreadcrumbList, Article/Product/FAQ), 301 not 302, no redirect chains, hreflang for multi-locale, SEO perf smells (oversized images, missing lazy-loading/`width`/`height`, render-blocking).
-- **Content**: thin pages, keyword presence (title, h1, first paragraph, natural body — no stuffing), duplicate content, readability.
+- **Content**: thin pages, keyword presence (title, h1, first paragraph, natural body; no stuffing), duplicate content, readability.
 
 ## Operating boundaries
 

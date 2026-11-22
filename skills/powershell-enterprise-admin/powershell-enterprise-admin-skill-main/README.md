@@ -4,7 +4,7 @@
 
 **Turn any AI agent into a senior PowerShell architect.**
 
-One standard. Every tool looks, runs, and logs the same way — production-grade, every time.
+One standard. Every tool looks, runs, and logs the same way, at production grade.
 
 [![PowerShell](https://img.shields.io/badge/PowerShell-5.1%2B-5391FE?style=for-the-badge&logo=powershell&logoColor=white)](https://learn.microsoft.com/en-us/powershell/)
 [![Platform](https://img.shields.io/badge/Platform-Windows%2010%2F11%20-0F172A?style=for-the-badge)](#-works-on)
@@ -24,18 +24,18 @@ One standard. Every tool looks, runs, and logs the same way — production-grade
 
 ### What is a "skill"?
 
-A skill is a folder of instructions that you give to an AI coding agent (OpenCode, Claude Code, Cursor, Copilot...). When the skill is loaded, the agent stops writing PowerShell its own way — and starts writing it **this way**: the enterprise way, every single time.
+A skill is a folder of instructions that you give to an AI coding agent (OpenCode, Claude Code, Cursor, Copilot...). When the skill is loaded, the agent stops writing PowerShell its own way and starts writing it this way: the enterprise way, every single time.
 
 ### What problem does it solve?
 
-AI agents write working code — but every script looks different. One uses aliases, one forgets error handling, one hardcodes colors so dark mode breaks, one freezes the window during long queries. Individually they work; together they look like five different teams wrote them.
+AI agents write working code, but every script looks different. One uses aliases, one forgets error handling, one hardcodes colors so dark mode breaks, and one freezes the window during long queries. Individually they work; together they look like five different teams wrote them.
 
 This skill fixes that. It gives the agent:
 
-* **Laws** — 12 non-negotiable rules (and *why* each exists)
-* **Templates** — ready-made starting files to copy from
-* **Patterns** — 21 proven solutions for common problems (theme toggle, async loading, logging...)
-* **Tests** — automated scripts that *prove* the output is compliant
+* 12 non-negotiable laws, each with the reason behind it
+* Ready-made starting files to copy from
+* 21 proven solutions for common problems such as theme toggle, async loading, and logging
+* Automated scripts that check the output against the rules
 
 | Without this skill | With this skill |
 | :--- | :--- |
@@ -68,7 +68,7 @@ Your request → Classify type → Copy template → Fill placeholders
             → Apply 12 laws + patterns → Run quality gate → Ship ✅
 ```
 
-> **Why classify first?** Because a GUI tool and an Intune remediation have completely different rules — exit codes, headers, log locations. Picking the wrong recipe is how broken tools get shipped.
+> **Why classify first?** A GUI tool and an Intune remediation have completely different rules: exit codes, headers, log locations. Choosing the wrong recipe is how broken tools get shipped.
 
 ---
 
@@ -90,7 +90,7 @@ Your request → Classify type → Copy template → Fill placeholders
   Compile `.ps1` into a standalone `.exe`, embed icons, Authenticode signing with timestamp, and publish to PSGallery.
 
 * 📚 **Documentation**
-  Professional README files with shields.io badges, exit-code tables, and disclaimers — generated from templates, never from scratch.
+  Professional README files with shields.io badges, exit-code tables, and disclaimers, generated from templates rather than from scratch.
 
 * 🧪 **Quality gates**
   Automated tests parse the XAML, check naming drift, and smoke-test on real Windows PowerShell 5.1 — before anything ships.
@@ -141,7 +141,7 @@ Test-Skill
 [PASS] Test-ReadmeFidelity.ps1 — all README templates faithful
 ```
 
-If you see any `FAIL`, re-download the skill — a file was corrupted in transit. The self-test never modifies your files; it only reads.
+If you see any `FAIL`, re-download the skill; a file was corrupted in transit. The self-test never modifies your files; it only reads.
 
 ---
 
@@ -149,7 +149,7 @@ If you see any `FAIL`, re-download the skill — a file was corrupted in transit
 
 The skill is loaded into your agent's context on startup. **Restart the agent** (close and reopen the chat) so the new skill triggers.
 
-Then ask naturally. No special commands. No keywords to memorize. Just describe what you need the way you'd tell a colleague.
+Then ask naturally, the way you would describe the task to a colleague. No special commands or keywords to memorize.
 
 **First example — try this exact prompt right now:**
 
@@ -216,7 +216,7 @@ Disable-SMBv1/
 
 ### Step 5 — Verify the deliverable before shipping (CI-ready gates)
 
-The skill ships three test scripts. Each one is a standalone PowerShell script with `exit 0` (pass) or `exit 1` (fail) — wire them into your CI:
+The skill ships three test scripts. Each one is a standalone PowerShell script with `exit 0` (pass) or `exit 1` (fail). Wire them into your CI:
 
 ```powershell
 # 1. "Is the skill installed correctly?" — runs on the SKILL itself
@@ -240,7 +240,7 @@ The skill ships three test scripts. Each one is a standalone PowerShell script w
 | `Test-Delivery.ps1` | Is the whole delivery ready to ship? | Last command before merge / push / Intune upload |
 | `Test-ReadmeFidelity.ps1` | Does the README match its template? | After every README change |
 
-> **The rule:** if it fails the gate, it doesn't ship. The gates are 100% automatable — add them to your pre-commit hook and your CI pipeline, then forget about manual review.
+> **The rule:** if it fails the gate, it doesn't ship. The gates are 100% automatable. Add them to your pre-commit hook and CI pipeline, then stop relying on manual review.
 
 ---
 
@@ -256,19 +256,19 @@ Once you've confirmed the skill works on one tool, you can tune it:
 | **Log paths per script type** | `references/_logging-canonical.md` | Only if your enterprise has a mandated log share |
 | **Author/brand** | `SKILL.md` § Identity Lock + canonical author block in each README | If you're forking for an organization |
 
-> **Don't change names.** You can change values (hex colors, font sizes, log paths) freely. You cannot change names (`BtnBase`, `BackgroundBrush`, `Write-Log`, `Add-LogLine`) — the gates and the canonical helpers all depend on those names. Changing them silently breaks every delivered tool.
+> **Don't change names.** Changing values such as hex colors, font sizes, and log paths is fine. Names (`BtnBase`, `BackgroundBrush`, `Write-Log`, `Add-LogLine`) are fixed because the gates and canonical helpers depend on them. Changing a name silently breaks every delivered tool.
 
 ---
 
 ## 💬 Examples & Use Cases — Real Prompts, Real Tools
 
-Below are 30+ tested prompts organized by the type of deliverable you need. Every prompt was written the way a real operator would type it — casual, with context, and asking for the same thing three different ways so you can see how the skill matches intent, not keywords. Copy any of them verbatim or paraphrase to your situation.
+Below are 30+ tested prompts organized by the type of deliverable you need. Every prompt was written the way a real operator would type it: casual, with context, and sometimes asking for the same thing three different ways. That shows how the skill matches intent rather than keywords. Copy any prompt verbatim or paraphrase it for your situation.
 
 ---
 
 ### 🖥️ Type 1 — WPF GUI Tools (Type 1: DataGrid + dark/light + async)
 
-The model will build a full Tier 1 desktop app with sidebar, status bar, theme toggle, and a live log console — every interactive button wrapped in `Guard-Action` so double-clicks can't race.
+The model will build a full Tier 1 desktop app with sidebar, status bar, theme toggle, and a live log console. Every interactive button is wrapped in `Guard-Action` so double-clicks cannot race.
 
 | # | Prompt | What you get |
 |:-:| :--- | :--- |
@@ -281,7 +281,7 @@ The model will build a full Tier 1 desktop app with sidebar, status bar, theme t
 | 7 | *"I want a WPF dashboard for our tenant: tenant name, license count, last 30 days of Intune enrollments, last 10 audit events. Refresh button at the top."* | WPF app with `LiveMessageCenterBox` log, `StatCard` tiles, async Graph call to `/reports`, refresh button uses `Guard-Action` to prevent rapid double-clicks. |
 | 8 | *"Build me a WPF tool to manage Windows Update for Business rings. Top panel = ring list, bottom = assigned devices. Buttons: 'Add Ring', 'Edit Assignments', 'Delete'."* | WPF app with `BtnRed` (Delete) + `BtnPrimary` (Add) + `BtnBlue` (Edit), edit dialog as `Inline XAML Dialog` (Pattern D), no second window. |
 
-**Tips for the GUI prompt:** name the *controls* you want (`DataGrid`, `TreeView`, `Card`, `StatCard`, `InputBox`) — the model maps them to the canonical 19 styles. Always mention *"dark/light must work"* and *"must not freeze"* — the model adds `DynamicResource` everywhere and uses `Start-Job` for long ops.
+**Tips for the GUI prompt:** name the *controls* you want (`DataGrid`, `TreeView`, `Card`, `StatCard`, `InputBox`); the model maps them to the canonical 19 styles. Always mention *"dark/light must work"* and *"must not freeze"*. The model then adds `DynamicResource` everywhere and uses `Start-Job` for long ops.
 
 ---
 
@@ -302,7 +302,7 @@ The model will classify your request into one of: (a) **detection/remediation pa
 | 9 | *"PowerShell script to find all Windows devices in Intune that haven't checked in for 30 days, export to CSV, email the result to me."* | Combined script: `Get-MgGraphAllPages` with `$filter = lastSyncDateTime lt ...`, `Export-Csv` to `Reports\StaleDevices_*.csv`, then `Send-EmailNotification` with HTML body and CSV attachment. |
 | 10 | *"Remediation: detect and disable the SMBv1 server feature. Don't break SMBv2/3. Verify after."* | Detection: `Get-WindowsFeature FS-SMB1`. Remediation: `Disable-WindowsFeature -Online -Remove -NoRestart`, then **post-verify** by re-running detection. Exit `0` only if both passes are compliant. |
 
-**Tips for the Intune prompt:** state the *exit codes* explicitly (`0 = compliant`, `1 = non-compliant`, `2 = error`). Mention the log path you want (`<SystemDrive>\IntuneLogs\<SolutionName>\`). For Graph calls, name the auth method (interactive / app-only / managed identity) — the model wires the right auth block.
+**Tips for the Intune prompt:** state the *exit codes* explicitly (`0 = compliant`, `1 = non-compliant`, `2 = error`). Mention the log path you want (`<SystemDrive>\IntuneLogs\<SolutionName>\`). For Graph calls, name the auth method (interactive / app-only / managed identity); the model wires the right auth block.
 
 ---
 
@@ -323,7 +323,7 @@ The model will write a single-file CLI with `Initialize-Log` + `Write-Banner` + 
 | 9 | *"Enumerate all AD groups with more than 100 members. List group name, member count, manager (if any), and last modified date."* | CLI with `Get-ADGroup -Filter * -Properties Members,ManagedBy,WhenChanged`, filter on `.Count -gt 100`, sort by member count, `Export-Csv`. |
 | 10 | *"On every server in 'CN=DomainControllers,DC=contoso,DC=com', check if the time skew from the PDC emulator is more than 5 minutes. Alert on each offender."* | CLI with `Get-ADDomainController -Discover -Service PrimaryDC`, then `w32tm /query /computer:<dc> /status` via `Invoke-Command` against each DC. Reports in green/yellow/red table. |
 
-**Tips for the CLI prompt:** name the *output* (CSV / console table / email). Mention the *limit* (`don't run on more than 10 at a time`, `exclude service accounts`). Always include `-WhatIf` for any destructive op — the model will add the `ShouldProcess` block automatically.
+**Tips for the CLI prompt:** name the *output* (CSV / console table / email). Mention the *limit* (`don't run on more than 10 at a time`, `exclude service accounts`). Always include `-WhatIf` for any destructive op; the model adds the `ShouldProcess` block automatically.
 
 ---
 
@@ -353,7 +353,7 @@ The model follows `references/macos-patterns.md`: `set -euo pipefail`, `logger` 
 
 ### 🧪 Auditing, reviewing, and refactoring existing PowerShell libraries
 
-The model can also review, audit, and refactor existing code — the canonical gates (`Test-ToolCompliance.ps1`, `Test-ReadmeFidelity.ps1`, `[Parser]::ParseFile`) are built for this.
+The model can also review, audit, and refactor existing code. The canonical gates (`Test-ToolCompliance.ps1`, `Test-ReadmeFidelity.ps1`, `[Parser]::ParseFile`) are built for this.
 
 | # | Prompt | What you get |
 |:-:| :--- | :--- |
@@ -368,7 +368,7 @@ The model can also review, audit, and refactor existing code — the canonical g
 | 9 | *"My README badges are inconsistent — some scripts have 3 badges, some have 8. Normalize every README to the canonical hero (5+ badges in fixed order)."* | The model reads every README, rewrites the hero with the canonical badge set (PowerShell 5.1+, Platform, License, Version, Intune if pair) in the canonical order, re-runs `Test-ReadmeFidelity.ps1`. |
 | 10 | *"Audit my master README's counts — file count, script count, README count, remediation pair count. Update the master README to match the actual filesystem."* | The model runs `Measure-Object` across the repo, computes the real counts, and rewrites the master README's Tables + Summary + Project Structure to match. |
 
-**Tips for the audit prompt:** name the *gate* (`Test-ToolCompliance.ps1`, `Test-ReadmeFidelity.ps1`, `[Parser]::ParseFile`). State the *scope* (whole library, one folder, one script). State the *output format* (table, list, summary, no edits — just a report).
+**Tips for the audit prompt:** name the *gate* (`Test-ToolCompliance.ps1`, `Test-ReadmeFidelity.ps1`, `[Parser]::ParseFile`). State the *scope* (whole library, one folder, one script). State the *output format* (table, list, summary, or no edits at all, just a report).
 
 ---
 
@@ -450,13 +450,13 @@ powershell-enterprise-admin/
     └── readme-*.template.md             # 4 README variants (basic/cli/gui/intune-pair)
 ```
 
-> **Golden rule:** agents copy from `templates/` first, then fill placeholders — never write from scratch. Templates already pass the compliance gate, so staying close to them *is* compliance.
+> **Golden rule:** agents copy from `templates/` first, then fill placeholders. Do not write from scratch. Templates already pass the compliance gate, so staying close to one keeps you compliant.
 
 ---
 
 ## 📜 The 12 Laws
 
-Twelve simple rules. Break one → the tool is rejected. None are arbitrary — each law exists because of a real production bug it prevents.
+Twelve simple rules. Break one and the tool is rejected. None are arbitrary; each law exists because of a real production bug it prevents.
 
 | # | Law | Rule | Why It Exists |
 |:-:| :--- | :--- | :--- |
@@ -479,11 +479,11 @@ Full details with enforcement commands: [`SKILL.md`](SKILL.md)
 
 ## 🎨 Design System
 
-Every GUI tool shares one visual language: **Tailwind Slate**. It works like paint-by-numbers — instead of choosing colors, the agent picks a named token, and light/dark mode just works.
+Every GUI tool shares one visual language: **Tailwind Slate**. It works like paint by numbers. The agent picks a named token instead of choosing colors, and light/dark mode follows.
 
 ### How theming works
 
-Each color exists once as a named token (a brush). Controls reference the token name, never the hex value. Switching themes swaps the token values behind the scenes — every control updates instantly, nothing gets rebuilt.
+Each color exists once as a named token (a brush). Controls reference the token name, not the hex value. Switching themes swaps the token values behind the scenes; every control updates instantly without being rebuilt.
 
 ```text
 Button uses BackgroundBrush  →  Light mode: #F1F5F9  →  Dark mode: #1E293B
@@ -526,13 +526,13 @@ Full XAML for all of them: [`references/xaml-styles.md`](references/xaml-styles.
 | macOS (Sonoma / Sequoia) | ❌ | ✅ | ✅ Bash |
 | Azure Automation | ❌ | ✅ Runbooks | ✅ |
 
-Works with PowerShell 5.1 and 7+. No special fonts, no extra modules required — SVG paths render everywhere, even on locked-down server builds.
+Works with PowerShell 5.1 and 7+. No special fonts or extra modules are required. SVG paths render everywhere, even on locked-down server builds.
 
 ---
 
 ## 🧪 Test Everything
 
-Three commands. That's the whole quality system — and each one answers a different question:
+Three commands make up the quality system, and each answers a different question:
 
 ```powershell
 # 1. "Is the skill installed correctly?"
@@ -547,9 +547,9 @@ Three commands. That's the whole quality system — and each one answers a diffe
 
 What each one actually checks:
 
-* **`Test-Skill.ps1`** — validates the skill's own files: syntax parses, headers are ordered correctly, tokens and styles exist, file sizes stay within budget.
-* **`Test-ToolCompliance.ps1`** — greps your tool for drift: forbidden icon fonts, invented style names, missing button guards, missing README badges or disclaimer.
-* **`Test-Delivery.ps1`** — combines everything plus a **real PS 5.1 smoke test**. This matters because code that parses fine on PowerShell 7 can still crash on 5.1 (the version most enterprises actually run).
+* `Test-Skill.ps1` validates the skill's own files: syntax parses, headers are ordered correctly, tokens and styles exist, and file sizes stay within budget.
+* `Test-ToolCompliance.ps1` greps your tool for drift: forbidden icon fonts, invented style names, missing button guards, and missing README badges or disclaimer.
+* `Test-Delivery.ps1` combines everything with a real PS 5.1 smoke test. Code that parses fine on PowerShell 7 can still crash on 5.1, the version most enterprises actually run.
 
 Exit codes are CI-ready: `0` = pass, `1` = fail. Wire them into any pipeline.
 
@@ -558,33 +558,33 @@ Exit codes are CI-ready: `0` = pass, `1` = fail. Wire them into any pipeline.
 ## ❓ FAQ
 
 **Q: Do I need this for small scripts too?**
-A: Yes — that's the point. Small tools get the Tier 1 treatment: everything in one `.ps1` file, still fully compliant. Only complex apps (5+ features) use the modular structure.
+A: Yes. Small tools get the Tier 1 treatment: everything in one `.ps1` file, still fully compliant. Only complex apps (5+ features) use the modular structure.
 
 **Q: Can my agent use Segoe MDL2 icons?**
 A: No. They look fine on Windows 10/11 but render as empty boxes on Server Core and locked-down builds. SVG paths from `references/icons.md` render everywhere and can recolor with the theme.
 
 **Q: Does it really never freeze the UI?**
-A: Correct. Any operation longer than a moment runs in a background job (`Start-Job`) or async runspace, with the UI polling results on a timer. It's Law 8 — no exceptions.
+A: Correct. Any operation longer than a moment runs in a background job (`Start-Job`) or async runspace, with the UI polling results on a timer. It's Law 8, with no exceptions.
 
 **Q: What if the request is ambiguous?**
-A: The skill instructs the agent to ask you before building — e.g., "Graph API + dashboard" could mean a GUI tool (Type 1) or a cloud script (Type 2). Guessing wrong wastes a whole build.
+A: The skill instructs the agent to ask you before building. For example, "Graph API + dashboard" could mean a GUI tool (Type 1) or a cloud script (Type 2). Guessing wrong wastes a whole build.
 
 **Q: Why does `Get-Help` show nothing on generated scripts?**
-A: The rich header uses custom dotted fields (`.TAGS`, `.REMEDIATIONTYPE`) — machine-readable by design, which standard comment-based help can't mix with. The trade-off is documented in `references/pitfalls.md`.
+A: The rich header uses custom dotted fields (`.TAGS`, `.REMEDIATIONTYPE`), which are machine readable by design and cannot mix with standard comment-based help. The trade-off is documented in `references/pitfalls.md`.
 
 **Q: Can I customize the design?**
-A: Change values, not names. Adjust token hex values freely — but keep token and style *names* fixed, because shared tooling and tests depend on them.
+A: Change values, not names. Adjust token hex values freely, but keep token and style names fixed because shared tooling and tests depend on them.
 
 ---
 
 ## 🛡 Operational Notes
 
-* **Least privilege** — `.PERMISSIONS` lists only real Graph scopes actually used, or honestly says `None (local SYSTEM context)`
-* **No secrets stored** — settings files never contain passwords or client secrets
-* **Safe by default** — destructive actions support `-WhatIf` / `-Confirm`
-* **Government clouds supported** — Commercial, GCC, GCC-High, and DoD endpoints documented
-* **Culture-safe dates** — `ConvertTo-SafeDateTime` works on any locale, not just en-US
-* **Idempotent remediations** — paired scripts are safe to run twice; they verify the fix after applying it
+* Least privilege: `.PERMISSIONS` lists only the Graph scopes actually used, or says `None (local SYSTEM context)`
+* No secrets stored: settings files never contain passwords or client secrets
+* Safe by default: destructive actions support `-WhatIf` / `-Confirm`
+* Government clouds supported: Commercial, GCC, GCC-High, and DoD endpoints are documented
+* Culture-safe dates: `ConvertTo-SafeDateTime` works on any locale, not just en-US
+* Idempotent remediations: paired scripts are safe to run twice and verify the fix after applying it
 
 ---
 
@@ -613,7 +613,7 @@ Website: [momar.tech](https://momar.tech)
 
 <div align="center">
 
-⭐ **If this skill saves you time, star the repo — it helps others find it.**
+⭐ **If this skill saves you time, star the repo; it helps others find it.**
 
 [Report an Issue](../../issues) · [momar.tech](https://momar.tech)
 

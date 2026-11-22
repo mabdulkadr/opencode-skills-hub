@@ -604,8 +604,6 @@ class DocCoverage:
 6. **Reference Documentation**: Complete API reference with examples
 7. **Documentation Site**: Build preview; deploy only within the requested scope
 
-Focus on creating documentation that is accurate, comprehensive, and easy to maintain alongside code changes.
-
 ## Limits of these extractors
 
 AST sketches do not resolve arbitrary decorators, imported types, Pydantic factories

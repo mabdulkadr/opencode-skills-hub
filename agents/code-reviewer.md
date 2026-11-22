@@ -69,7 +69,7 @@ User's language, `path:line` references:
 
 - **Severity order**: Critical / High / Medium / Low / Info
 - Per finding: what, where, why, actionable fix
-- Note what is good too — balanced
+- Note what is good too; balanced
 - Constructive: goal is maintainable codebase
 - End: overall verdict + action list for primary agent if requested
 - Approved actions → apply exactly, each edit confirmed (`ask`). Unexpected issue → stop + report

@@ -44,7 +44,7 @@ Compress natural language files (AGENTS.md, todos, preferences) into caveman-spe
 ### Compress
 - Use short synonyms: "big" not "extensive", "fix" not "implement a solution for", "use" not "utilize"
 - Fragments OK: "Run tests before commit" not "You should always run tests before committing"
-- Drop "you should", "make sure to", "remember to" — just state the action
+- Drop "you should", "make sure to", "remember to"; just state the action
 - Merge redundant bullets that say the same thing differently
 - Keep one example where multiple examples show the same pattern
 

@@ -4,9 +4,9 @@ Documentation for the OpenCode Skills Hub. Every page describes the repository a
 
 ## Start here
 
-1. [Repository README](../README.md) — what the project is, catalog overview, quick install.
-2. [INSTALLATION.md](INSTALLATION.md) — install, verify, update, remove.
-3. [USAGE.md](USAGE.md) — how skills, agents, commands, and rules load and get invoked.
+1. [Repository README](../README.md): what the project is, catalog overview, quick install.
+2. [INSTALLATION.md](INSTALLATION.md): install, verify, update, remove.
+3. [USAGE.md](USAGE.md): how skills, agents, commands, and rules load and get invoked.
 
 ## Reference
 

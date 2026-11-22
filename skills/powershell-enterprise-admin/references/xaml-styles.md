@@ -130,7 +130,7 @@ The foundation every other button style builds on. **Always** define this first 
 
 - `UIElement.Opacity` MUST be fully qualified in control template triggers. Plain `Opacity` may resolve wrong.
 - `SnapsToDevicePixels="True"` prevents text blur on high-DPI displays.
-- Disabled state changes Background, Border, Foreground — not just opacity — to look distinct.
+- Disabled state changes Background, Border, and Foreground, not just opacity, to look distinct.
 
 ---
 
@@ -278,13 +278,13 @@ Tall (46px), rounded (10px corner), left-aligned text, hover changes background 
         </Style>
 ```
 
-**Active state pattern** (the current page's nav button): set `Background="{DynamicResource AccentTintBrush}"` and `Foreground="{DynamicResource AccentHoverBrush}"` directly on the active button. Do NOT add a new style — just override these two properties.
+**Active state pattern** (the current page's nav button): set `Background="{DynamicResource AccentTintBrush}"` and `Foreground="{DynamicResource AccentHoverBrush}"` directly on the active button. Do NOT add a new style; just override these two properties.
 
 ---
 
 ## Card — Content Container
 
-White/surface background, 12px corner, drop shadow. Used for sections, forms, results. **STATIC** — no IsMouseOver trigger.
+White/surface background, 12px corner, drop shadow. Used for sections, forms, and results. **STATIC**: no IsMouseOver trigger.
 
 ```xml
 <Style x:Key="Card" TargetType="{x:Type Border}">
@@ -342,7 +342,7 @@ Like Card but with hover-border highlight. Used for dashboard KPI tiles (number 
 
 ## InputBox / InputBoxNoHover
 
-Text input with focus highlight (AccentBrush border on `IsKeyboardFocused`). **`InputBox` has NO IsMouseOver trigger** — keyboard focus only. `InputBoxNoHover` exists for cases where you want the border to never change at all.
+Text input with focus highlight (AccentBrush border on `IsKeyboardFocused`). **`InputBox` has NO IsMouseOver trigger**: keyboard focus only. `InputBoxNoHover` exists for cases where you want the border to never change at all.
 
 ```xml
 <Style x:Key="InputBox" TargetType="TextBox">
@@ -572,7 +572,7 @@ Sidebar session details card displaying ComputerName, User, and Administrator el
 </Style>
 ```
 
-**Usage** — apply the style to the Border; the inner controls keep their `x:Name` bindings:
+**Usage**: apply the style to the Border; the inner controls keep their `x:Name` bindings:
 
 ```xml
 <Border Style="{StaticResource SessionCard}">

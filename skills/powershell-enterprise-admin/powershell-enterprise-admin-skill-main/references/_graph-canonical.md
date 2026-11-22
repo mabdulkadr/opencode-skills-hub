@@ -1,6 +1,6 @@
 # Canonical Graph API — Single Source of Truth
 
-> **DO NOT DUPLICATE.** All Graph pagination/auth/retry/batch logic lives in `scripts/` — reference only.
+> **DO NOT DUPLICATE.** All Graph pagination/auth/retry/batch logic lives in `scripts/`; reference only.
 
 ## Scripts (copy verbatim, never retype)
 
@@ -65,8 +65,8 @@ $TokenUri  = "https://login.microsoftonline.us/$TenantId/oauth2/v2.0/token"
 ```
 
 Rules:
-- One `$GraphBase` variable in the CONFIGURATION region — every URI concatenates from it; never scatter literal endpoints through the script.
+- One `$GraphBase` variable in the CONFIGURATION region; every URI concatenates from it. Do not scatter literal endpoints through the script.
 - Batch and pagination helpers (`Invoke-GraphBatchRequest`, `Get-MgGraphAllPages`) inherit the base from their `-Uri` argument, so sovereign clouds need no helper changes.
-- Beta surface availability differs per cloud — verify the endpoint exists before assuming parity with Global.
+- Beta surface availability differs per cloud. Verify that the endpoint exists before assuming parity with Global.
 
 See `intune-patterns.md` and `notification-patterns.md` for full deployment patterns.

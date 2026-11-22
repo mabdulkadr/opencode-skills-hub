@@ -23,7 +23,7 @@ Use this skill when you:
 Start with the smallest viewport and the most important content. Enhance progressively for larger screens.
 
 ### 2. Content Determines Breakpoints
-Set breakpoints where the design breaks — not at device widths. "Start with the small screen first, then expand until it looks like shit. Time for a breakpoint!" (Stephen Hay).
+Set breakpoints where the design breaks, not at device widths. "Start with the small screen first, then expand until it looks like shit. Time for a breakpoint!" (Stephen Hay).
 
 ### 3. Flexibility Over Perfection
 Websites don't need to be pixel-perfect. They need to look good and be usable on every device.

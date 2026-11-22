@@ -2,9 +2,9 @@
 
 Bash script patterns for macOS enterprise management with Microsoft Intune. These are **Type 3 (General CLI)** scripts.
 
-**Two output modes — never mix them:**
+**Two output modes, never mix them:**
 - **Standard scripts:** `log_message` (structured `[timestamp] [LEVEL] message` to console + `/var/log/`) and `exit 1` on failure.
-- **Intune custom attributes (only when explicitly requested):** `output_result` prints ONE line and always exits 0. A success exit on failure in a standard script makes Intune/operators believe it succeeded — only custom attributes exit 0 with an error message.
+- **Intune custom attributes (only when explicitly requested):** `output_result` prints ONE line and always exits 0. A success exit on failure in a standard script makes Intune/operators believe it succeeded. Only custom attributes exit 0 with an error message.
 
 ---
 

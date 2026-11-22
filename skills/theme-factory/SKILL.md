@@ -7,7 +7,7 @@ license: Complete terms in LICENSE.txt
 
 # Theme Factory Skill
 
-This skill provides a curated collection of professional font and color themes themes, each with carefully selected color palettes and font pairings. Once a theme is chosen, it can be applied to any artifact.
+This skill provides a collection of professional font and color themes, each with a color palette and font pairing. Once you choose a theme, you can apply it to any artifact.
 
 ## Purpose
 
@@ -20,10 +20,10 @@ To apply consistent, professional styling to presentation slide decks, use this 
 
 To apply styling to a slide deck or other artifact:
 
-1. **Show the theme showcase**: Display the `theme-showcase.pdf` file to allow users to see all available themes visually. Do not make any modifications to it; simply show the file for viewing.
-2. **Ask for their choice**: Ask which theme to apply to the deck
-3. **Wait for selection**: Get explicit confirmation about the chosen theme
-4. **Apply the theme**: Once a theme has been chosen, apply the selected theme's colors and fonts to the deck/artifact
+1. Show the theme showcase. Display the `theme-showcase.pdf` file so users can see the available themes. Do not modify it; just show it for viewing.
+2. Ask which theme to apply to the deck.
+3. Wait for explicit confirmation of the chosen theme.
+4. Apply the chosen theme's colors and fonts to the deck or artifact.
 
 ## Themes Available
 
@@ -56,4 +56,4 @@ After a preferred theme is selected:
 4. Maintain the theme's visual identity across all slides
 
 ## Create your Own Theme
-To handle cases where none of the existing themes work for an artifact, create a custom theme. Based on provided inputs, generate a new theme similar to the ones above. Give the theme a similar name describing what the font/color combinations represent. Use any basic description provided to choose appropriate colors/fonts. After generating the theme, show it for review and verification. Following that, apply the theme as described above.
+If none of the existing themes fit an artifact, create a custom one. Generate a theme similar to those above, using any description you are given to pick colors and fonts. Give it a name that describes the font and color combination. Show the new theme for review, then apply it as described above.

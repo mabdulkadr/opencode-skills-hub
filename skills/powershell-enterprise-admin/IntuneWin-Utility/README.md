@@ -61,7 +61,7 @@ Log file stored automatically under `C:\IntuneWinUtility\`.
 Just double-click:
 
 ```text
-IntuneWin App Utility.exe
+IntuneWinAppUtil.exe
 ```
 
 No PowerShell window required.

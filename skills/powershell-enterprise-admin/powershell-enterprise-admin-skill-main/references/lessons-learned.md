@@ -1,21 +1,21 @@
 # Lessons Learned Register
 
-The skill learns from its own mistakes. The **Lessons Learned Register** lives INSIDE the skill at `<skill-dir>/lessons-learned.md` — one global register that travels with the skill and applies to every script, tool, and project it touches. Project-local copies are not used: a lesson learned in one project must protect every future build. This file defines the register's format and workflow; the actual entries live in the skill-root register.
+The skill learns from its own mistakes. The **Lessons Learned Register** lives INSIDE the skill at `<skill-dir>/lessons-learned.md`: one global register that travels with the skill and applies to every script, tool, and project it touches. Project-local copies are not used; a lesson learned in one project must protect every future build. This file defines the register's format and workflow; the actual entries live in the skill-root register.
 
 ## Workflow
 
 1. **Before building anything**, read `<skill-dir>/lessons-learned.md`. If a listed lesson applies to the current task, follow its rule.
-2. **During the build**, when a mistake happens, append an entry to `<skill-dir>/lessons-learned.md` immediately - do not wait for the end of the session.
+2. **During the build**, when a mistake happens, append an entry to `<skill-dir>/lessons-learned.md` immediately; do not wait for the end of the session.
 3. **At the end of the session**, skim the register: any rule that has now prevented a mistake twice is a candidate for promotion into `references/pitfalls.md` (ask the user first; never edit reference files unilaterally).
 
 ## When to Log an Entry
 
 Append an entry only when one of these actually happened (no speculation):
 
-- **User correction** — the user corrected your output, naming, structure, or a rule you got wrong.
-- **Runtime crash** — a delivered script failed on the user's machine or in testing (PS 5.1 incompatibility, XAML parse error, auth failure, culture-related date bug).
-- **Non-obvious pitfall** — you hit a PS 5.1 trap, a Graph throttling/403 case, or a WinRM quirk that was not already in `references/pitfalls.md`.
-- **Environment discovery** — a new constraint about the environment (PowerShell version, module availability, group policy, proxy).
+- User correction: the user corrected your output, naming, structure, or a rule you got wrong.
+- Runtime crash: a delivered script failed on the user's machine or in testing (PS 5.1 incompatibility, XAML parse error, auth failure, culture-related date bug).
+- Non-obvious pitfall: you hit a PS 5.1 trap, a Graph throttling/403 case, or a WinRM quirk that was not already in `references/pitfalls.md`.
+- Environment discovery: a new constraint about the environment (PowerShell version, module availability, group policy, proxy).
 
 ## File Format
 
@@ -47,10 +47,10 @@ Append an entry only when one of these actually happened (no speculation):
 
 ## Rules
 
-- **Dedupe:** never append an entry whose rule already exists in this register or in `references/pitfalls.md`. Check both first.
-- **Terse:** one line per field; the register is read by the model on later sessions, so keep entries scannable.
-- **Evidence-based:** no entry without a concrete event — the register is for observed mistakes, not predictions.
-- **Promotion:** when the same rule has prevented a mistake twice across sessions, propose moving it into `references/pitfalls.md` with the user's approval.
+- Dedupe: never append an entry whose rule already exists in this register or in `references/pitfalls.md`. Check both first.
+- Terse: one line per field; the register is read by the model on later sessions, so keep entries scannable.
+- Evidence-based: no entry without a concrete event. The register is for observed mistakes, not predictions.
+- Promotion: when the same rule has prevented a mistake twice across sessions, propose moving it into `references/pitfalls.md` with the user's approval.
 
 ---
 
@@ -95,4 +95,4 @@ Append an entry only when one of these actually happened (no speculation):
 - **Mistake:** A model built a WPF GUI using Segoe MDL2 font glyphs, invented style keys (`PrimaryButtonStyle`), invented brush tokens (`ColorBg`), an `Add-LogLine` rewrite without the `$script:lastLogKey` guard, `StatusText` instead of `StatusBarText`, and a README without badges or Disclaimer.
 - **Cause:** Critical identifiers live in reference files read early in the session; by the time the 1,400-line XAML was written, the model wrote styles/tokens/icons from memory instead of copying them verbatim. ICON LAW named only "Segoe Fluent Icons", so the model rationalized MDL2 as a different thing.
 - **Fix:** Added the Identity Lock section to SKILL.md (canonical names table + never-invent rule), banned ALL Segoe symbol fonts explicitly, added a pre-flight gate (re-open references immediately before writing), embedded the mandatory README badge/disclaimer skeleton, and shipped scripts/Test-ToolCompliance.ps1 which FAILs every drift pattern (validated: gold-standard tool passes, drifted tool reports 10 FAIL).
-- **Rule:** Canonical identifiers are copied from reference files verbatim at write time - never reconstructed from memory; every delivered tool must pass Test-ToolCompliance.ps1 with zero FAIL before handoff.
+- **Rule:** Canonical identifiers are copied from reference files verbatim at write time, never reconstructed from memory; every delivered tool must pass Test-ToolCompliance.ps1 with zero FAIL before handoff.

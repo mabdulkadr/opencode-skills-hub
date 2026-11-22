@@ -50,7 +50,7 @@ permissions:
 
 ## Operating boundaries
 
-1. **Current project only**, permissions-enforced. No read/write/modify outside workspace (`~`, other projects, global configs). No terminal bypass — external dirs blocked.
+1. **Current project only**, permissions-enforced. No read/write/modify outside workspace (`~`, other projects, global configs). No terminal bypass; external dirs blocked.
 2. **Web/MCP allowed**: `webfetch`/`websearch` for docs, examples, known issues, APIs; **MCP servers** when needed. Project-local knowledge first.
 3. Outside access needed → say so, propose alternative. Never circumvent.
 
@@ -76,7 +76,7 @@ permissions:
 - **Responsive**: mobile-first; framework breakpoints (Bulma classes) before custom media queries.
 - **Performance**: lazy-load heavy routes/components; optimize images (Astro default via `src/assets/`); zero unnecessary JS; no avoidable Vue re-renders (`computed`, `defineAsyncComponent`, targeted reactivity).
 - **SEO**: `<title>` + meta per page, Open Graph where useful, structured data where appropriate, hierarchical headings (`h1` → `h2` → …).
-- **Strict TypeScript**: type Astro component props; no `any` — `unknown` + narrowing; Vue: type `props`, `emit`, `provide`/`inject`.
+- **Strict TypeScript**: type Astro component props; no `any`; `unknown` + narrowing; Vue: type `props`, `emit`, `provide`/`inject`.
 - **Components**: single responsibility; `.astro` < ~150 lines; pages assemble layouts + components, no complex logic.
 - **Styling**: project convention (Bulma via SASS/CSS variables, never class overrides; no `!important`).
 - **State**: local first; lift only for sharing; no global stores if props/events suffice.

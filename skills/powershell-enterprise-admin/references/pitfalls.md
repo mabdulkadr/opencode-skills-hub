@@ -1,6 +1,6 @@
 # Known Pitfalls — PS 5.1 WPF
 
-Every crash listed here was debugged in production. The fix is included. Read this file before you start writing WPF — these are the 21+ ways to crash the tool at ShowDialog or runtime.
+Every crash listed here was debugged in production, and the fix is included. Read this file before you start writing WPF; these are the 21+ ways to crash the tool at ShowDialog or runtime.
 
 ---
 

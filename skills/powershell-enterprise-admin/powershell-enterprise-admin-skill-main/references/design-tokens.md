@@ -25,7 +25,7 @@ Tokens are `SolidColorBrush` resources defined in `Window.Resources` of `MainWin
         CornerRadius="12">
 ```
 
-When the user clicks the theme toggle button, `Set-Theme` (defined in `WpfHelpers.ps1`) replaces the brush instances in `Window.Resources` with dark-mode values. Every element using `{DynamicResource}` updates automatically because the resource key still resolves — only the brush instance changed.
+When the user clicks the theme toggle button, `Set-Theme` (defined in `WpfHelpers.ps1`) replaces the brush instances in `Window.Resources` with dark-mode values. Every element using `{DynamicResource}` updates automatically because the resource key still resolves; only the brush instance changed.
 
 **Why `DynamicResource` not `StaticResource`:** `StaticResource` resolves once at parse time. `DynamicResource` resolves at lookup time. Theme toggle works because the lookup happens at render time.
 
@@ -145,10 +145,10 @@ $darkTokens = @{
 Set-Theme -Window $Window -IsDark $true   # uses $darkTokens internally
 ```
 
-`Set-Theme -IsDark $false` restores every value to its light-mode seed. Always pair the two functions so toggling is symmetric. The canonical implementation lives in `templates/wpf-gui-tool.template.ps1` (function `Set-Theme` using `Remove + Add`) — copy that pattern, do not retype from the snippet above.
+`Set-Theme -IsDark $false` restores every value to its light-mode seed. Always pair the two functions so toggling is symmetric. The canonical implementation lives in `templates/wpf-gui-tool.template.ps1` (function `Set-Theme` using `Remove + Add`); copy that pattern, do not retype from the snippet above.
 ## Spacing Rules
 
-These are **non-negotiable values** — every tool uses them:
+These are **non-negotiable values**; every tool uses them:
 
 | Element | Value |
 |---------|-------|
@@ -200,7 +200,7 @@ Match icon size to context:
 | Sidebar nav buttons | `Width="18" Height="18"` |
 | StatusBar indicator dots | `Width="8" Height="8"` |
 
-All icons are `<Path>` elements with SVG `Data="..."`. Never use Segoe Fluent Icons / symbol fonts — they don't exist on Windows Server by default.
+All icons are `<Path>` elements with SVG `Data="..."`. Never use Segoe Fluent Icons or symbol fonts; they don't exist on Windows Server by default.
 
 See `references/icons.md` for the standard icon set (sun, moon, settings, power, info, etc.) with verified SVG path data.
 ## Extended Token Families - 2026-08-23)

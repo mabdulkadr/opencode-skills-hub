@@ -1,6 +1,6 @@
 # Canonical Logging — Single Source of Truth
 
-> **DO NOT DUPLICATE.** Copy implementations verbatim from `scripts/` — never retype.
+> **DO NOT DUPLICATE.** Copy implementations verbatim from `scripts/`. Never retype.
 
 ## One Logger Per Context
 
@@ -42,12 +42,12 @@ aligned per-target table:
 ```
 
 - Status color: Green (OK) / Yellow (SKIPPED) / Red (FAILED); row color matches the per-row result.
-- `$ok`/`$skipped`/`$failed` are computed *inside* `Write-Summary` from `Results` — do not recompute them in MAIN or print a hand-built summary line (that duplicates the helper and drifts).
+- `$ok`/`$skipped`/`$failed` are computed inside `Write-Summary` from `Results`; do not recompute them in MAIN or print a hand-built summary line, which duplicates the helper and drifts.
 - Call it immediately before `Finish-Script`; keep the table as the single source of the per-target view. If a script renders extra detail sections (e.g., an enrollment table), print them *after* `Write-Summary`.
 
 ## Deduplication
 
-Consecutive-duplicate guard via `$script:lastLogKey` — drops immediate duplicate `Level|Message` only. Not a full `HashSet`.
+The `$script:lastLogKey` guard drops immediate duplicate `Level|Message` entries only. It is not a full `HashSet`.
 
 ## Levels & Colors (fixed, identical in console + GUI MessageCenter)
 
@@ -59,7 +59,7 @@ Consecutive-duplicate guard via `$script:lastLogKey` — drops immediate duplica
 | WARNING | Yellow | `#F59E0B` |
 | ERROR | Red | `#EF4444` |
 
-Level set is exactly `INFO, SUCCESS, WARNING, ERROR, DEBUG` — no `DIVIDER`.
+The level set is exactly `INFO, SUCCESS, WARNING, ERROR, DEBUG`; there is no `DIVIDER`.
 
 ## Empty-Message Spacer Rule (Pitfall 30)
 
@@ -85,4 +85,4 @@ spacer). This is enforced by `Test-ToolCompliance.ps1` (Pitfall 30 gate).
 - CLI scripts use `Write-Log`, never `Add-LogLine`.
 - Every exit path uses `Finish-Script` (Intune) or explicit `Write-Log` + `exit`.
 - `Get-Content -Raw -Encoding UTF8` when reading logs on PS 5.1 (see `lessons-learned.md` ps51-verification-encoding).
-- `Message` parameter is **non-Mandatory + AllowEmptyString + default "" + early-return** — see Empty-Message Spacer Rule above.
+- `Message` parameter is **non-Mandatory + AllowEmptyString + default "" + early-return**; see Empty-Message Spacer Rule above.

@@ -71,7 +71,7 @@ Detection.ps1 runs
 
 ## Script Header Format (Enterprise Standard)
 
-Every script uses this structured header with metadata blocks. The header is the API contract — without it, `Get-Help` returns nothing and reviewers cannot understand the tool.
+Every script uses this structured header with metadata blocks. The header is the API contract: without it, `Get-Help` returns nothing and reviewers cannot understand the tool.
 
 ```powershell
 <#
@@ -881,7 +881,7 @@ catch {
 
 ### Per-Target Failure Tracking
 
-When a remediation handles multiple independent targets (multiple folders, services, registry keys), track success/failure counts and only exit 1 if ALL targets failed. This is more resilient than fail-fast — partial success still fixes some devices or some issues on a single device:
+When a remediation handles multiple independent targets (multiple folders, services, registry keys), track success/failure counts and only exit 1 if ALL targets failed. This is more resilient than fail-fast; partial success still fixes some devices or some issues on a single device:
 
 ```powershell
 $targetCount = 0
@@ -920,7 +920,7 @@ Write-Output "Completed ($($targetCount - $failedCount) of $targetCount targets 
 exit 0
 ```
 
-**Why partial-success is better than fail-fast:** In a disk cleanup scenario, if the Windows Temp folder is locked by a running process, that shouldn't prevent the Recycle Bin from being emptied. The per-target pattern means Intune reports "partially succeeded" instead of "failed" — and the next cycle will try the failed target again.
+**Why partial-success is better than fail-fast:** In a disk cleanup scenario, if the Windows Temp folder is locked by a running process, that shouldn't prevent the Recycle Bin from being emptied. The per-target pattern means Intune reports "partially succeeded" instead of "failed." The next cycle will try the failed target again.
 
 ### Space Freed Reporting
 
@@ -937,7 +937,7 @@ $freedMB = [math]::Round(($freeAfter - $freeBefore) / 1MB, 2)
 Write-Output "Freed space: $freedMB MB"
 ```
 
-**Why report freed space:** Intune device output only shows "succeeded" or "failed" — operators have no visibility into *how much* was cleaned. Adding freed-space reporting to the output gives them data to tune thresholds (e.g., "this device only freed 12MB, maybe the threshold is too aggressive").
+**Why report freed space:** Intune device output only shows "succeeded" or "failed"; operators have no visibility into how much was cleaned. Adding freed-space reporting to the output gives them data to tune thresholds (e.g., "this device only freed 12MB, maybe the threshold is too aggressive").
 
 ---
 
@@ -1008,9 +1008,9 @@ Finish-Script -ExitCode 1 -Message "DNS cache flush failed" -Level "ERROR"
 Finish-Script -ExitCode 2 -Message "Script execution error: $($_.Exception.Message)" -Level "ERROR"
 ```
 
-**Why this matters:** Without `Finish-Script`, you end up with `Write-Log` + `exit` duplicated in every branch. With it, each exit point is a single readable line — and the log level matches the exit code semantics.
+**Why this matters:** Without `Finish-Script`, you end up with `Write-Log` + `exit` duplicated in every branch. With it, each exit point is a single readable line, and the log level matches the exit code semantics.
 
-**Per-target result block:** when a script processes multiple targets (see Per-Target Failure Tracking), print the canonical end-of-run block with `Write-Summary -Results $results` (from `scripts/Write-Log.ps1`) immediately before `Finish-Script`. It renders one colored status line plus an aligned `Target/Result/Skipped/Error` table and computes `ok/skipped/failed` internally — do not hand-build a second summary line or table, or output drifts across the fleet. See `SKILL.md` → CLI `Write-Summary` for the exact block.
+**Per-target result block:** when a script processes multiple targets (see Per-Target Failure Tracking), print the canonical end-of-run block with `Write-Summary -Results $results` (from `scripts/Write-Log.ps1`) immediately before `Finish-Script`. It renders one colored status line plus an aligned `Target/Result/Skipped/Error` table and computes `ok/skipped/failed` internally; do not hand-build a second summary line or table, or output drifts across the fleet. See `SKILL.md` → CLI `Write-Summary` for the exact block.
 
 ### Config-Driven Command Execution
 
@@ -1083,7 +1083,7 @@ $LogFile = Join-Path $LogRoot "$SolutionName-$ScriptMode.txt"
 
 ### Complete CLI Script Template
 
-Putting it all together — a production-ready Intune remediation script:
+Putting it all together: a production-ready Intune remediation script:
 
 ```powershell
 <#
@@ -1278,7 +1278,7 @@ exit 1
 
 ### Remote Diagnostics Collection
 
-Trigger Intune's "Collect diagnostics" remote action on devices and download the resulting log packages. This pattern is useful for large-scale troubleshooting — instead of clicking through the portal for each device, the script collects diagnostics from hundreds of devices in one run:
+Trigger Intune's "Collect diagnostics" remote action on devices and download the resulting log packages. This pattern is useful for large-scale troubleshooting: instead of clicking through the portal for each device, the script collects diagnostics from hundreds of devices in one run:
 
 ```powershell
 <#
@@ -1804,7 +1804,7 @@ Key behaviors (why this design):
 
 ### 403 Handling: Missing Roles and Multi-Admin Approval
 
-Graph `403` during a *destructive* operation (delete device, delete user, wipe) is almost never a missing permission scope — interactive admins already consented to scopes at sign-in. The real cause is almost always a **missing directory/Intune role**, which Graph permission checks don't see. A tool that reports "Authorization_RequestDenied" with raw HTTP text makes the admin file an app registration ticket that won't fix anything.
+Graph `403` during a *destructive* operation (delete device, delete user, wipe) is almost never a missing permission scope; interactive admins already consented to scopes at sign-in. The real cause is almost always a **missing directory/Intune role**, which Graph permission checks don't see. A tool that reports "Authorization_RequestDenied" with raw HTTP text makes the admin file an app registration ticket that won't fix anything.
 
 **Rule:** catch the 403, map it to the role fix via `Get-Graph403Message` (`scripts/Get-Graph403Message.ps1`), and *tell the operator what to assign*:
 

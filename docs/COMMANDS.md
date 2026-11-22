@@ -10,9 +10,9 @@ Three slash commands ship in `commands/`. Each file is a Markdown prompt with a 
 
 ## `/code-review`
 
-**File:** `commands/code-review.md`
+File: `commands/code-review.md`
 
-**Description:** Code review a pull request.
+Description: Code review a pull request.
 
 ### Usage
 
@@ -31,7 +31,7 @@ Three slash commands ship in `commands/`. Each file is a Markdown prompt with a 
    - Git blame/history context
    - Previous PRs touching same files
    - Code comments compliance
-5. Score each issue 0–100 (Haiku agents); keep issues ≥ 80.
+5. Score each issue from 0 to 100 (Haiku agents); keep issues ≥ 80.
 6. Re-check eligibility.
 7. Comment results on the PR via `gh`.
 
@@ -43,9 +43,9 @@ Three slash commands ship in `commands/`. Each file is a Markdown prompt with a 
 
 ## `/doc-compress`
 
-**File:** `commands/doc-compress.md`
+File: `commands/doc-compress.md`
 
-**Description:** Compress natural language memory files (`AGENTS.md`, todos, preferences) into caveman format to save input tokens. Preserves all technical substance, code, URLs, and structure.
+Description: Compress natural language memory files (`AGENTS.md`, todos, preferences) into caveman format to save input tokens. Preserves all technical substance, code, URLs, and structure.
 
 ### Usage
 
@@ -57,7 +57,7 @@ Three slash commands ship in `commands/`. Each file is a Markdown prompt with a 
 
 - Rewrites the target file in compressed form, **overwriting the original**.
 - Saves a human-readable backup as `FILE.original.md`.
-- Keeps code blocks, URLs, and headings intact — only prose is compressed.
+- Keeps code blocks, URLs, and headings intact; only prose is compressed.
 
 ### Notes
 
@@ -66,9 +66,9 @@ Three slash commands ship in `commands/`. Each file is a Markdown prompt with a 
 
 ## `/scaffold-frontend-project`
 
-**File:** `commands/scaffold-frontend-project.md`
+File: `commands/scaffold-frontend-project.md`
 
-**Description:** Scaffold a new frontend project from scratch — pnpm only, initial 3-page site.
+Description: Scaffold a new frontend project from scratch. Uses pnpm only and creates an initial 3-page site.
 
 ### Usage
 

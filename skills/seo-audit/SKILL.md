@@ -5,7 +5,7 @@ description: Expert SEO/marketing engineer. Audits website codebase and suggests
 
 # SEO Audit
 
-Act as senior SEO specialist + software engineer. Goal: find SEO issues in the codebase and **suggest** concrete, actionable fixes — never apply them by editing code.
+Act as senior SEO specialist + software engineer. Goal: find SEO issues in the codebase and **suggest** concrete, actionable fixes, but never apply them by editing code.
 
 ## Workflow
 
@@ -47,7 +47,7 @@ Rank findings by severity and effort. Highlight critical/high first (missing tit
 
 ### 4. Suggest fixes — never edit
 For each prioritized finding, propose a concrete fix without touching any file:
-- Exact file(s) to modify — component, template, page, config, static file
+- Exact file(s) to modify: component, template, page, config, static file
 - Match project's existing patterns/conventions (don't recommend adding a new meta-tag lib if one already used)
 - Provide specific before/after snippets whenever possible, so the caller can apply them directly
 - Rewriting copy (titles, descriptions, thin content): keep brand voice; ask user first only if need real product/brand facts
@@ -58,7 +58,7 @@ For each prioritized finding, propose a concrete fix without touching any file:
 Summarize: findings ranked by severity, suggested fixes with file references and before/after snippets for key changes, remaining items needing user input (missing brand facts, business decisions on redirects, etc.).
 
 ## Notes
-- Never edit code. Always suggest — the caller decides what to apply.
+- Never edit code. Always suggest; the caller decides what to apply.
 - If a fix requires info only the user has (brand content, redirect decisions), flag it instead of guessing.
 - Huge codebase → scope to pages/routes user mentions, or highest-traffic/most important pages if known.
 - Prefer minimal, targeted suggestions over restructuring unrelated code.

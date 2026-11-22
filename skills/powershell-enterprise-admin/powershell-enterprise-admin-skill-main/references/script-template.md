@@ -1,6 +1,6 @@
 # PowerShell Script Template and Coding Conventions
 
-> **Canonical header: see `_header-canonical.md` (single source). Canonical logging: `_logging-canonical.md`. This file extends with examples and quality bars — do not duplicate field order here.**
+> **Canonical header: see `_header-canonical.md` (single source). Canonical logging: `_logging-canonical.md`. This file extends with examples and quality bars; do not duplicate field order here.**
 
 Standard script structure, header format, and coding conventions for enterprise PowerShell tools.
 
@@ -87,13 +87,13 @@ Every script starts with this canonical header:
   Full template: `references/intune-patterns.md` ("Script Header Format")
 - `.TITLE` follows the pattern `ToolName Mode - Brief purpose` (e.g., `WinTempSweep Detection - Stale Temp Data Compliance Check`)
 - `.SYNOPSIS` is one line, under 100 characters
-- `.DESCRIPTION` explains the "why", not just the "what" — targets, thresholds, what gets skipped, how results are reported
-- `.PLATFORM` is required — `Windows` or `macOS`
+- `.DESCRIPTION` explains the "why", not just the "what": targets, thresholds, what gets skipped, and how results are reported
+- `.PLATFORM` is required: `Windows` or `macOS`
 - `.PERMISSIONS` lists exact Graph API permission names (or `None (local SYSTEM context)`)
 - `.AUTHOR` is `AI Generated` for generated tools; `.LASTUPDATE` is today's date (YYYY-MM-DD)
 - `.CHANGELOG` is newest-first and documents FIXES with their cause, not just features (e.g., "1.1 - Fixed invalid return statement in Get-FolderSize that caused folder sizes to always report 0 bytes")
 - `.NOTES` always covers: execution context/elevation behavior, exit codes, log path, skip/locked-file behavior
-- **File order:** the help block is ALWAYS the first thing in the file; `#Requires -Version 5.1` goes immediately after it — never before, never elsewhere
+- **File order:** the help block is ALWAYS the first thing in the file; `#Requires -Version 5.1` goes immediately after it; never before, never elsewhere
 - **Never write `#Requires -RunAsAdministrator`.** Detect elevation at runtime with `Test-IsElevated` and degrade gracefully (see Description & Comment Writing Standards)
 - Detect/remediate pairs additionally carry `.REMEDIATIONTYPE` + `.PAIRSCRIPT` right after `.TAGS`; notification runbooks add `.EXECUTION` + `.OUTPUT`
 
@@ -395,11 +395,11 @@ $exitCode = 1
 
 ## Logging
 
-**There is exactly one canonical logger per context — copy it verbatim, never retype:**
+**There is exactly one canonical logger per context: copy it verbatim, never retype:**
 - **WPF GUI tools:** `scripts/Add-LogLine.ps1` (consecutive-duplicate guard via `$script:lastLogKey` + file + console + status bar + GUI Message Center colors)
 - **CLI scripts (incl. Intune):** `scripts/Write-Log.ps1` (with `Initialize-Log` / `Finish-Script`)
 
-The level set is `INFO, SUCCESS, WARNING, ERROR, DEBUG` — **there is no `DIVIDER` level** (older drafts invented it; use `DEBUG` or a plain INFO line instead). The console/Message Center colors are fixed (Tailwind Slate):
+The level set is `INFO, SUCCESS, WARNING, ERROR, DEBUG`; **there is no `DIVIDER` level** (older drafts invented it; use `DEBUG` or a plain INFO line instead). The console/Message Center colors are fixed (Tailwind Slate):
 
 | Level | Console color | Hex |
 |-------|---------------|-----|
@@ -580,7 +580,7 @@ if (Get-Module -ListAvailable -Name ActiveDirectory) {
 
 ## CmdletBinding and Advanced Functions
 
-`[CmdletBinding()]` turns a function into an *advanced function* — it gets common parameters (`-Verbose`, `-Debug`, `-ErrorAction`, `-WarningAction`, `-WhatIf`, `-Confirm`), strict parameter binding, and discoverable help via `Get-Help`. Without it, `-Verbose` silently does nothing.
+`[CmdletBinding()]` turns a function into an *advanced function*: it gets common parameters (`-Verbose`, `-Debug`, `-ErrorAction`, `-WarningAction`, `-WhatIf`, `-Confirm`), strict parameter binding, and discoverable help via `Get-Help`. Without it, `-Verbose` silently does nothing.
 
 ### Basic CmdletBinding
 
@@ -805,7 +805,7 @@ Import-Csv "C:\Lists\Computers.csv" |
     Restart-ServiceOnDevice -ServiceName 'Spooler'
 ```
 
-**Why `process { }` block?** Without it, the function receives all pipeline items as one batch. The `process` block runs once per item — which is what enables `Get-ADComputer | Restart-ServiceOnDevice` to actually stream.
+**Why `process { }` block?** Without it, the function receives all pipeline items as one batch. The `process` block runs once per item, which is what enables `Get-ADComputer | Restart-ServiceOnDevice` to stream.
 
 ---
 
@@ -883,10 +883,10 @@ The header and comments are the tool's contract with the next operator. These st
 
 A compliant `.DESCRIPTION` answers four questions, in order:
 
-1. **Scope** — exactly which targets/objects it touches (e.g., "%TEMP%, plus C:\Windows\Temp when elevated").
-2. **Safety guarantees** — what it will NOT do (e.g., "files locked by running processes are skipped", "only deletes files older than N days"). Operators approve deployment based on these lines.
-3. **Degradation behavior** — what changes without elevation, prerequisites, or modules.
-4. **Output contract** — what it reports back (per-target totals, freed space) and whether it supports `-WhatIf`.
+1. **Scope**: exactly which targets/objects it touches (e.g., "%TEMP%, plus C:\Windows\Temp when elevated").
+2. **Safety guarantees**: what it will NOT do (e.g., "files locked by running processes are skipped", "only deletes files older than N days"). Operators approve deployment based on these lines.
+3. **Degradation behavior**: what changes without elevation, prerequisites, or modules.
+4. **Output contract**: what it reports back (per-target totals, freed space) and whether it supports `-WhatIf`.
 
 ```powershell
 .DESCRIPTION
@@ -900,7 +900,7 @@ A compliant `.DESCRIPTION` answers four questions, in order:
 
 ### Parameter HelpMessage
 
-Every non-obvious parameter carries a `HelpMessage`. This is what interactive users see from parameter prompts — one line, action-oriented:
+Every non-obvious parameter carries a `HelpMessage`. This is what interactive users see from parameter prompts: one line, action-oriented:
 
 ```powershell
 [Parameter(Mandatory = $false, HelpMessage = "Minimum file age in days before deletion")]
@@ -927,7 +927,7 @@ Each `.EXAMPLE` is followed by a plain-language line describing the effect, not 
 
 ### Graceful Elevation Degradation (Type 3 Tools)
 
-`#Requires -RunAsAdministrator` is banned outright — it hard-fails before the tool can log anything or do partial work. For dual-context CLI tools, always degrade at runtime: clean what the current context allows, log a WARNING for what was skipped, and document the split in `.NOTES`.
+`#Requires -RunAsAdministrator` is banned outright; it hard-fails before the tool can log anything or do partial work. For dual-context CLI tools, always degrade at runtime: clean what the current context allows, log a WARNING for what was skipped, and document the split in `.NOTES`.
 
 ```powershell
 function Test-IsElevated {
@@ -981,19 +981,19 @@ $totalFreed   = ($results | Measure-Object -Property SizeFreed -Sum).Sum
 ### Inline Comment Standards
 
 * **Section banners** (`# ===== CONFIGURATION =====`) mark the fixed regions: Configuration / Logging / Functions / Main.
-* **WHY-comments** on non-obvious decisions only — e.g., why directories are sorted deepest-first before removal, why a catch suppresses silently.
+* **WHY-comments** on non-obvious decisions only, e.g., why directories are sorted deepest-first before removal, why a catch suppresses silently.
 * **Skip reasons get DEBUG logs**, not silence: `"Skipped locked or protected file: $($file.Name)"` tells the operator months later why the file survived.
 * Defensive completeness in switches: a `default { "White" }` color fallback beats an unhandled level.
-* Keep `ValidateSet` consistent across helpers — if `Write-Log` accepts `DEBUG`, `Finish-Script` accepts it too.
+* Keep `ValidateSet` consistent across helpers: if `Write-Log` accepts `DEBUG`, `Finish-Script` accepts it too.
 
 ### Anti-Patterns Rejected From the Source Pattern
 
 The reference script also contained violations that must NOT propagate:
 
-* **Invented Graph permissions.** It declared `.PERMISSIONS DeviceManagementManagedDevices.ReadWrite.All` while making zero Graph API calls. Per the Canonical Conventions table: local-only scripts declare `None (local SYSTEM context)` — never invent scopes to look complete.
+* **Invented Graph permissions.** It declared `.PERMISSIONS DeviceManagementManagedDevices.ReadWrite.All` while making zero Graph API calls. Per the Canonical Conventions table: local-only scripts declare `None (local SYSTEM context)`; never invent scopes to look complete.
 * **`$PSCmdlet.ShouldProcess('dummy')` probes** and manual `-WhatIf:` flag threading. See `references/pitfalls.md` → CLI Script Traps.
 * **Mixed file+folder enumeration** (double-delete phantom failures). See `references/pitfalls.md` → CLI Script Traps.
-* **Header opening `<#.` instead of `<#`** — use the canonical `<# ... #>` structured header for Type 2 scripts.
+* **Header opening `<#.` instead of `<#`**: use the canonical `<# ... #>` structured header for Type 2 scripts.
 
 ### Testing for Cross-Version Compatibility
 

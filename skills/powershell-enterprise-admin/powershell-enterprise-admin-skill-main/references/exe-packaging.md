@@ -18,7 +18,7 @@
 
 ## When to Package vs Ship .ps1
 
-Default to shipping the `.ps1` — it is auditable, greppable, and diffable. Promote to `.exe` only when:
+Default to shipping the `.ps1`; it is auditable, greppable, and diffable. Promote to `.exe` only when:
 
 | Driver | Why it wins as EXE |
 |--------|--------------------|
@@ -27,17 +27,17 @@ Default to shipping the `.ps1` — it is auditable, greppable, and diffable. Pro
 | Locked-down endpoints | AppLocker/WDAC rules that block loose scripts but allow signed binaries |
 | Branding | Custom icon + version metadata in Explorer |
 
-Never package Intune detection/remediation pairs — they must stay readable `.ps1` files for portal upload.
+Never package Intune detection/remediation pairs; they must stay readable `.ps1` files for portal upload.
 
 ---
 
 ## Compile .ps1 to EXE (Enterprise GUI Framework canonical)
 
-**Canonical tool: Enterprise GUI Framework** (``) — use its GUI for interactive compiles; mirror its approach for automation:
+**Canonical tool: Enterprise GUI Framework** (``): use its GUI for interactive compiles; mirror its approach for automation:
 
 - **In-process CodeDOM compilation**, falling back to `csc.exe` on PowerShell 7.x (the GAC ships the .NET Framework `System.Management.Automation` that CodeDOM needs; Core hosts do not).
-- **Script embedded as a managed resource** — never Base64 strings or temp files. Managed resources survive AV heuristics better and keep the assembly clean.
-- **Async compile** in a background runspace with progress feedback (Pattern C/R) — CodeDOM blocks for seconds on large scripts.
+- **Script embedded as a managed resource**: never Base64 strings or temp files. Managed resources survive AV heuristics better and keep the assembly clean.
+- **Async compile** in a background runspace with progress feedback (Pattern C/R): CodeDOM blocks for seconds on large scripts.
 - **Assembly metadata**: version, description, product, copyright, company. Version the EXE from the script's `.VERSION` field so one source of truth drives both.
 - **Compilation options** to expose: GUI vs Console output, suppress output/error windows, UAC manifest (asInvoker / requireAdministrator), target platform (x64/x86/AnyCPU), apartment state STA for WPF tools.
 
@@ -57,7 +57,7 @@ Requirements table (put this in every packaging README):
 ## Custom Icon Embedding
 
 - Embed `.ico` directly via compiler options (`/win32icon:` equivalent).
-- When only PNG/JPG/BMP/GIF exists, convert to multi-size ICO first (16/32/48/256 px) — single-size icons render blurry in taskbars and Alt-Tab.
+- When only PNG/JPG/BMP/GIF exists, convert to multi-size ICO first (16/32/48/256 px); single-size icons render blurry in taskbars and Alt-Tab.
 - Keep a default application icon so no build ever ships iconless.
 - Store source art in `images/app-icon.png` per the Tier 3 tree in `file-architecture.md`.
 
@@ -100,7 +100,7 @@ Rules:
 
 - **Always timestamp.** Without a timestamp server, signatures die when the certificate expires.
 - Keep signing certs out of the repo (Enterprise GUI Framework ships example certs in `cert/` for demos only). Load from the user store or a hardware token.
-- CI pipelines sign via a secret-backed certificate import step — never commit `.pfx` files.
+- CI pipelines sign via a secret-backed certificate import step; never commit `.pfx` files.
 - Verify `Status -eq 'Valid'` in the delivery checklist alongside `Test-ToolCompliance`.
 
 ---
@@ -132,7 +132,7 @@ Minimum viable publishing flow:
 1. Author with [`New-ScriptFileInfo`](https://learn.microsoft.com/powershell/module/powershellget/new-scriptfileinfo) metadata (Version, Author, Description, ProjectUri, LicenseUri) merged with the canonical header block.
 2. Validate: `Test-ScriptFileInfo .\Tool.ps1`
 3. Publish: `Publish-Script -Path .\Tool.ps1 -NuGetApiKey <key>`
-4. Users then run `Install-Script ToolName` — updates via `Install-Script ToolName -Force`.
+4. Users then run `Install-Script ToolName`; updates via `Install-Script ToolName -Force`.
 
 Gallery badges for the tool README:
 
@@ -141,4 +141,4 @@ Gallery badges for the tool README:
 ![Downloads](https://img.shields.io/powershellgallery/dt/ToolName)
 ```
 
-Keep the canonical rich header AND the gallery metadata — the trade-off documented in `pitfalls.md` (Get-Help disabled) does not affect `Test-ScriptFileInfo`, which parses its own fields independently.
+Keep the canonical rich header AND the gallery metadata. The trade-off documented in `pitfalls.md` (Get-Help disabled) does not affect `Test-ScriptFileInfo`, which parses its own fields independently.

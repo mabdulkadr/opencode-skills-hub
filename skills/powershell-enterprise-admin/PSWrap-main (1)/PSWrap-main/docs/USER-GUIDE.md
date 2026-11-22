@@ -15,10 +15,10 @@
 ### Launch
 
 ```powershell
-powershell.exe -STA -File "Start-PSWrap.ps1"
+powershell.exe -STA -File "PSWrap.ps1"
 ```
 
-Or double-click `Start-PSWrap.ps1` in File Explorer.
+Or double-click `PSWrap.ps1` in File Explorer.
 
 > **Note:** STA (Single-Threaded Apartment) mode is required for WPF. The tool auto-restarts with `-STA` if launched without it.
 
@@ -289,7 +289,7 @@ If compilation fails with an access error:
 ### Application doesn't start
 
 1. Ensure you're using **Windows PowerShell** (powershell.exe), not PowerShell 7 (pwsh.exe)
-2. Launch with: `powershell.exe -STA -File "Start-PSWrap.ps1"`
+2. Launch with: `powershell.exe -STA -File "PSWrap.ps1"`
 3. Check execution policy: `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`
 
 ### Compilation succeeds but EXE doesn't run

@@ -47,8 +47,8 @@ The `business-english-it-pro` skill is original work by this repository's author
 
 ## Upstream sources
 
-- [openskills.cc/skills](https://openskills.cc/skills) — most single-purpose skills.
-- [web-dev-agent](https://github.com/Domenico-Tenace-Open-Labs/web-dev-agent) — the 8 agents, 3 rules, and the review/audit skill group.
+- [openskills.cc/skills](https://openskills.cc/skills): most single-purpose skills.
+- [web-dev-agent](https://github.com/Domenico-Tenace-Open-Labs/web-dev-agent): the 8 agents, 3 rules, and the review/audit skill group.
 - Individual authors named in each `SKILL.md` frontmatter.
 
 Respect upstream licenses and terms when redistributing any skill. If you add a skill, add its license file and record the source in `SKILL.md`.

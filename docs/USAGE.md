@@ -16,7 +16,7 @@ OpenCode selects a skill when the request matches its `description`; you can als
 > "Use the clean-code skill to refactor this module."
 > "Use `security-audit` on this repo."
 
-One name differs from its folder — use the frontmatter name: `business-english-it-pro` lives in the folder `Business-English-IT-Pro-Skill`.
+One name differs from its folder: use the frontmatter name: `business-english-it-pro` lives in the folder `Business-English-IT-Pro-Skill`.
 
 Skills run inside the current session, so the same conversation can chain them: plan with `writing-plans`, implement, then `code-review` and `frontend-accessibility`.
 
@@ -46,7 +46,7 @@ Subagents are delegated to; primary agents are selected as the session's agent.
 > Switch to security-expert and review this repo.
 ```
 
-Because every specialist agent has `edit: ask`, expect a confirmation prompt before any write. That is intentional — the agents audit and propose first.
+Because every specialist agent has `edit: ask`, expect a confirmation prompt before any write. That is intentional: the agents audit and propose first.
 
 `web-developer` is the `default_agent` in the sample `opencode.jsonc`; remove that key if you'd rather start with the general agent.
 
@@ -69,7 +69,7 @@ Rules are standing instructions. There is nothing to invoke; they are already in
 
 - Keep `SKILL.md` next to its assets (scripts, references) and copy folders whole.
 - Do not flatten nested asset folders.
-- Descriptions should state both what the skill does and when to use it — they drive automatic selection.
+- Descriptions should state both what the skill does and when to use it: they drive automatic selection.
 - `name` must be unique across installed skills; two folders with the same name overwrite each other.
 
 ## Best practices

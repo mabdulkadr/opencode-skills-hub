@@ -5,19 +5,19 @@ description: Audits codebase for security vulns, misconfigs, cybersecurity risks
 
 # Security Audit
 
-Systematic security review of codebase. Covers source code, deps, config/secrets, infrastructure-as-code. Output: concise, deduplicated, severity-ranked report in chat — no file unless user asks.
+Systematic security review of codebase. Covers source code, deps, config/secrets, infrastructure-as-code. Output: concise, deduplicated, severity-ranked report in chat, with no file unless the user asks.
 
 ## Workflow
 
-1. **Scope target.** Find root path to scan (user-given path, or cwd/repo if unspecified — ask only if ambiguous, e.g. multiple unrelated repos). Detect stack: language(s), frameworks, package managers, Docker/Terraform/K8s/CI config.
+1. **Scope target.** Find root path to scan (user-given path, or cwd/repo if unspecified; ask only if ambiguous, e.g. multiple unrelated repos). Detect stack: language(s), frameworks, package managers, Docker/Terraform/K8s/CI config.
 
 2. **Scan in passes**, using `references/checklist.md` for concrete patterns per category:
-   - **Source code** — injection flaws, auth/session issues, unsafe deserialization, path traversal, SSRF, weak crypto, insecure error handling.
-   - **Secrets & hardcoded credentials** — API keys, passwords, tokens, private keys, connection strings anywhere in tracked files (config, `.env` committed by mistake, code comments).
-   - **Dependencies** — parse manifest/lockfiles (`package.json`/`package-lock.json`, `requirements.txt`/`poetry.lock`, `*.csproj`/`packages.lock.json`, `go.mod`, `pom.xml`, etc). Flag known-vulnerable or abandoned/unpinned versions. Use web search for CVE lookups on suspect packages/versions if available; else flag as "needs CVE verification" not guessing.
-   - **Config & IaC** — Dockerfiles, docker-compose, Terraform, Kubernetes manifests, CI/CD pipelines, nginx/apache configs, cloud policy files. Look for permissive access, exposed ports/services, root containers, plaintext secrets, disabled TLS verification, wildcard permissions.
+   - **Source code**: injection flaws, auth/session issues, unsafe deserialization, path traversal, SSRF, weak crypto, insecure error handling.
+   - **Secrets & hardcoded credentials**: API keys, passwords, tokens, private keys, connection strings anywhere in tracked files (config, `.env` committed by mistake, code comments).
+   - **Dependencies**: parse manifest/lockfiles (`package.json`/`package-lock.json`, `requirements.txt`/`poetry.lock`, `*.csproj`/`packages.lock.json`, `go.mod`, `pom.xml`, etc). Flag known-vulnerable or abandoned/unpinned versions. Use web search for CVE lookups on suspect packages/versions if available; else flag as "needs CVE verification" not guessing.
+   - **Config & IaC**: Dockerfiles, docker-compose, Terraform, Kubernetes manifests, CI/CD pipelines, nginx/apache configs, cloud policy files. Look for permissive access, exposed ports/services, root containers, plaintext secrets, disabled TLS verification, wildcard permissions.
 
-3. **Deduplicate before reporting.** Same root cause repeats across files (e.g. one vulnerable dep in 12 places, same unsafe pattern copy-pasted) → report **once** as single finding listing all affected locations — never repeat explanation per occurrence. Hard requirement, not style.
+3. **Deduplicate before reporting.** Same root cause repeats across files (e.g. one vulnerable dep in 12 places, same unsafe pattern copy-pasted) → report **once** as single finding listing all affected locations, and never repeat the explanation per occurrence. Hard requirement, not style.
 
 4. **Assign severity** using rubric below. Be consistent; don't inflate or downplay.
 
@@ -52,7 +52,7 @@ Findings: X Critical, Y High, Z Medium, W Low, V Info
 ...
 ```
 
-Keep each finding tight: 4 lines max unless genuinely complex. No repeated preambles on every item — say it once per finding. If category scanned with zero findings, don't list in body; summary line covers it.
+Keep each finding tight: 4 lines max unless genuinely complex. No repeated preambles on every item; say it once per finding. If category scanned with zero findings, don't list in body; summary line covers it.
 
 ## When context is large
 

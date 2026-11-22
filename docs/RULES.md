@@ -23,7 +23,7 @@ Rules are not copied per project. They are loaded globally through the `instruct
 }
 ```
 
-Every request then carries the rule files as standing instructions. Because the glob matches all `.md` files in that directory, adding a rule file is enough — no config edit required.
+Every request then carries the rule files as standing instructions. Because the glob matches all `.md` files in that directory, adding a rule file is enough; no config edit required.
 
 ## Precedence
 

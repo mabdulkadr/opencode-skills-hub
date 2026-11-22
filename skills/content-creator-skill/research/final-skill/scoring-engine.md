@@ -32,7 +32,7 @@ Based on analysis of 234 Middle Eastern tech company websites across 7 countries
 ## 1. Naturalness (0–20 points)
 
 ### Description
-Measures whether the content reads as if a native Arabic speaker wrote it. The primary differentiator between human-quality Arabic content and machine-translated or non-native writing. This is the highest-weighted category because unnatural Arabic undermines all other quality dimensions — a Saudi reader who detects translation artifacts will distrust the entire piece.
+Measures whether the content reads as if a native Arabic speaker wrote it. The primary differentiator between human-quality Arabic content and machine-translated or non-native writing. This is the highest-weighted category because unnatural Arabic undermines all other quality dimensions: a Saudi reader who detects translation artifacts will distrust the entire piece.
 
 ### What to Look For
 - Fluent Modern Standard Arabic (MSA) sentence flow
@@ -75,7 +75,7 @@ Measures whether the content reads as if a native Arabic speaker wrote it. The p
 > *GPT markers ("بالتأكيد"), overuse of "حلول", empty adjectives, "أحدث ما توصلت إليه التكنولوجيا" cliché, repetitive structure.*
 
 ### Edge Cases
-- **Code-switching in technical content:** A developer-facing page may naturally use more English terms. Score based on the intended audience — if the code-switching matches the audience expectation, reduce the deduction.
+- **Code-switching in technical content:** A developer-facing page may naturally use more English terms. Score based on the intended audience; if the code-switching matches the audience expectation, reduce the deduction.
 - **Intentional dialect in social media:** If the content is for TikTok/Instagram and uses deliberate Saudi dialect for cultural resonance, do not penalize as long as it is consistent and intentional.
 - **Brand-specific voice:** Some brands deliberately use a more formal or more casual voice. Score against the brand's own style guide, not against a universal standard.
 
@@ -128,7 +128,7 @@ Measures how well the content adapts to the Saudi Arabian market specifically. C
 > *Egyptian dialect ("احنا", "بنقدم"), vague claims, "شغوف" cliché, no Saudi market awareness, wrong formality register.*
 
 ### Edge Cases
-- **International brands in Saudi:** A global brand may deliberately use less Saudi-specific language. Score against the brand's positioning — if they position as global, Saudi localization should still be present but may be lighter.
+- **International brands in Saudi:** A global brand may deliberately use less Saudi-specific language. Score against the brand's positioning; if they position as global, Saudi localization should still be present but may be lighter.
 - **Technical vs. marketing content:** API documentation requires less localization than homepage copy. Adjust expectations proportionally.
 - **Multilingual sites:** Saudi sites that use English as primary language still need localization cues (Saudi case studies, local certifications, Vision 2030 references in English).
 
@@ -137,7 +137,7 @@ Measures how well the content adapts to the Saudi Arabian market specifically. C
 ## 3. Persuasiveness (0–15 points)
 
 ### Description
-Measures the content's ability to convince a Saudi reader to take the desired action. Persuasion in the Saudi market differs from Western markets — it relies more on trust, national alignment, relationship signals, and logical argumentation than on aggressive sales tactics or emotional hype.
+Measures the content's ability to convince a Saudi reader to take the desired action. Persuasion in the Saudi market differs from Western markets: it relies more on trust, national alignment, relationship signals, and logical argumentation than on aggressive sales tactics or emotional hype.
 
 ### What to Look For
 - Clear value proposition stated within the first 2 sentences
@@ -243,7 +243,7 @@ Measures the content's search engine optimization for Arabic-language queries. A
 ## 5. Authority & Trust (0–10 points)
 
 ### Description
-Measures how effectively the content builds credibility and trust with the Saudi audience. Saudi readers are among the most trust-signal-sensitive in the world — analysis of 234 sites showed Saudi companies average 6.2 trust signals per page, 3–7 times more than US/European equivalents.
+Measures how effectively the content builds credibility and trust with the Saudi audience. Saudi readers are among the most trust-signal-sensitive in the world: analysis of 234 sites showed Saudi companies average 6.2 trust signals per page, 3–7 times more than US/European equivalents.
 
 ### What to Look For
 - Trust signals placed prominently (above the fold, near CTAs)
@@ -343,7 +343,7 @@ Measures how easily a Saudi reader understands the content on first reading. Ara
 ## 7. Readability (0–5 points)
 
 ### Description
-Measures the visual and structural readability of the Arabic content. Arabic has specific readability requirements that differ from English — longer line heights, RTL formatting considerations, different paragraph density expectations.
+Measures the visual and structural readability of the Arabic content. Arabic has specific readability requirements that differ from English: longer line heights, RTL formatting considerations, different paragraph density expectations.
 
 ### What to Look For
 - Sentence length appropriate for Arabic business content (hero: 5–10 words, body: 8–15 words)
@@ -394,7 +394,7 @@ Measures the visual and structural readability of the Arabic content. Arabic has
 ## 8. Conversion Potential (0–5 points)
 
 ### Description
-Measures the content's ability to drive the reader to take the desired action. Saudi conversion patterns differ from Western markets — urgency must be balanced with relationship-building, and CTAs must be value-forward rather than pushy.
+Measures the content's ability to drive the reader to take the desired action. Saudi conversion patterns differ from Western markets: urgency must be balanced with relationship-building, and CTAs must be value-forward rather than pushy.
 
 ### What to Look For
 - CTA quality: specific, benefit-oriented, action-driven (not "اضغط هنا" or "اعرف المزيد")
@@ -443,7 +443,7 @@ Measures the content's ability to drive the reader to take the desired action. S
 ## 9. Originality (0–5 points)
 
 ### Description
-Measures how differentiated the content is from competitors and how creatively it approaches the topic. Arabic tech content suffers from extreme homogeneity — most companies use the same phrases, structures, and approaches.
+Measures how differentiated the content is from competitors and how creatively it approaches the topic. Arabic tech content suffers from extreme homogeneity: most companies use the same phrases, structures, and approaches.
 
 ### What to Look For
 - Differentiation from competitors: Does it say something unique, or is it interchangeable?

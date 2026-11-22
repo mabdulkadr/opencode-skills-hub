@@ -1,6 +1,6 @@
 # Active Directory Management Patterns
 
-Patterns for Active Directory administration scripts. **All examples are CLI context — use `Write-Log` (canonical: `scripts/Write-Log.ps1`), not the GUI `Add-LogLine`.**
+Patterns for Active Directory administration scripts. **All examples are CLI context: use `Write-Log` (canonical: `scripts/Write-Log.ps1`), not the GUI `Add-LogLine`.**
 
 ---
 
@@ -432,7 +432,7 @@ function Import-ADObjectsFromCSV {
 
 ### Protected DN Pattern
 
-**Why this matters:** Active Directory has a few DNs whose modification can take down the entire domain — most notably the `Domain Controllers` OU. Moving a DC object out of that OU breaks replication and effectively bricks the forest. The standard default OUs (`CN=Users`, `CN=Computers`) are also common targets for accidental moves that orphan accounts. Add a guard to any bulk operation that touches OUs:
+**Why this matters:** Active Directory has a few DNs whose modification can take down the entire domain, most notably the `Domain Controllers` OU. Moving a DC object out of that OU breaks replication and effectively bricks the forest. The standard default OUs (`CN=Users`, `CN=Computers`) are also common targets for accidental moves that orphan accounts. Add a guard to any bulk operation that touches OUs:
 
 ```powershell
 # Prevent accidental modification of critical OUs/accounts.
@@ -459,7 +459,7 @@ foreach ($computer in $computers) {
 }
 ```
 
-This pattern is also useful when filtering CSV imports — never trust a CSV column to determine whether an object is safe to modify.
+This pattern is also useful when filtering CSV imports; never trust a CSV column to determine whether an object is safe to modify.
 
 ---
 
@@ -499,7 +499,7 @@ function Remove-ADObjectsSafely {
 
 ### Audit Trail
 
-Operational logging uses `Write-Log` (canonical: `scripts/Write-Log.ps1`). For compliance, keep a **structured CSV audit record** of every AD change — this is a data export, not a log, and it replaces no logging function:
+Operational logging uses `Write-Log` (canonical: `scripts/Write-Log.ps1`). For compliance, keep a **structured CSV audit record** of every AD change. This is a data export, not a log, and it replaces no logging function:
 
 ```powershell
 # Log all AD changes for audit

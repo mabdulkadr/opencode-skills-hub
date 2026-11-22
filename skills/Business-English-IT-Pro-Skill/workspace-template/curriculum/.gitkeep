@@ -1,3 +1,0 @@
-This folder will hold the curriculum lessons:
-  curriculum/day-001/lesson.md ... day-180/lesson.md
-Scaffold them with: python <skill>/scripts/new_lesson.py --root <workspace> --next --title "..."

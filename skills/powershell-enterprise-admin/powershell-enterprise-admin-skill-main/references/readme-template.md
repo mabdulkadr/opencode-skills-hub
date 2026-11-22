@@ -1,6 +1,6 @@
 # Professional README.md Template
 
-> **Canonical source:** All four variants live as standalone files under `templates/`. This file is a **guide** — copy from `templates/` directly, never from the blocks in this document.
+> **Canonical source:** All four variants live as standalone files under `templates/`. This file is a **guide**: copy from `templates/` directly, never from the blocks in this document.
 
 | Variant | Canonical source file |
 |---|---|
@@ -13,7 +13,7 @@
 
 ## Canonical Header — Centered Hero (every variant opens with this)
 
-The header is a **centered hero** identical in shape to the skill's own `README.md`: variable emoji title, then the two FIXED description lines (`**[Brief Description]**` bold tagline + `[One sentence explaining what the script does and for whom.]`), then **linked shields.io badges in `for-the-badge` style**, then a bullet-separated quick-nav row — all inside `<div align="center">`, closed before the first body section.
+The header is a **centered hero** identical in shape to the skill's own `README.md`: variable emoji title, then the two FIXED description lines (`**[Brief Description]**` bold tagline + `[One sentence explaining what the script does and for whom.]`), then **linked shields.io badges in `for-the-badge` style**, then a bullet-separated quick-nav row, all inside `<div align="center">`, closed before the first body section.
 
 ```html
 <div align="center">
@@ -66,11 +66,11 @@ Sections are **variable per script type, not fixed**. Pick the matching variant 
 
 Rules:
 
-- **Never** add `🧭 Intune Deployment` to a GUI or standalone-CLI README — deployment guidance belongs exclusively to the Intune pair's own README.
-- **Screenshots** (when the project has images) sit **directly after the 📖 Overview section** — never buried inside Usage. A README without images simply omits the section.
+- **Never** add `🧭 Intune Deployment` to a GUI or standalone-CLI README; deployment guidance belongs exclusively to the Intune pair's own README.
+- **Screenshots** (when the project has images) sit **directly after the 📖 Overview section**, never buried inside Usage. A README without images simply omits the section.
 - A suite/multi-tool README documents each script at its own scope; it must not carry an Intune Deployment section for non-Intune tools.
 - The template is the **floor, not the ceiling**: every README must contain at least the sections of its chosen variant, in order. You **MAY add** project-specific sections (Architecture, Troubleshooting, FAQ, Changelog, Screenshots, Performance, Security Considerations, etc.) when they add value, using the same visual language (emoji headings, tables, code fences, `---` separators). Insert extended sections **after** Requirements/Workflow but **before** Operational Notes so Author / License / Disclaimer remain last.
-- The ⚠ Disclaimer uses this canonical wording in every variant — copy verbatim:
+- The ⚠ Disclaimer uses this canonical wording in every variant; copy verbatim:
 
 > This skill and every script it generates are provided as-is with no warranty of any kind. Test generated tools in a staging environment before deploying to production. The authors assume no liability for any damage or data loss resulting from their use.
 
@@ -103,7 +103,7 @@ The four variant templates define the **minimum** that must be present. For larg
 - Do not add a second Disclaimer/License/Author block — those remain singular at the end
 - Keep total README readable: prefer 2–4 well-chosen extras over dumping every possible section
 
-**🧰 Core Commands section — ESSENTIAL (list main commands only, not internal helpers):**
+**🧰 Core Commands section: ESSENTIAL (list main commands only, not internal helpers):**
 
 ```markdown
 ---
@@ -130,7 +130,7 @@ internal helpers (`Write-Log`, `Test-IsElevated`, `Initialize-Log`, `Finish-Scri
 
 ## Icon Policy — Variable Header, Fixed Body (Skill Identity)
 
-**Header icon (first emoji before `# Title`) is VARIABLE per project/script name** — this is the project's fingerprint. Choose the emoji that matches the project's domain/name, not just its type:
+**Header icon (first emoji before `# Title`) is VARIABLE per project/script name**; this is the project's fingerprint. Choose the emoji that matches the project's domain/name, not just its type:
 
 | Project / Script Keyword | Header Icon | Example |
 |---|---|---|
@@ -147,7 +147,7 @@ internal helpers (`Write-Log`, `Test-IsElevated`, `Initialize-Log`, `Finish-Scri
 
 Rule: Never use the same 🌐 for all headers. The header icon must be instantly distinguishable by project name.
 
-**Body section icons are FIXED — this is the skill's unified visual identity.** Anyone seeing these icons together should recognize the skill's work:
+**Body section icons are FIXED; this is the skill's unified visual identity.** Anyone seeing these icons together should recognize the skill's work:
 
 | Section | Fixed Icon | Heading |
 |---|---|---|
@@ -167,7 +167,7 @@ Rule: Never use the same 🌐 for all headers. The header icon must be instantly
 
 Do not invent new icons for these sections — the fixed set is the skill's signature.
 
-**Skill Signature Footer (mandatory — every README ends with this):**
+**Skill Signature Footer (mandatory; every README ends with this):**
 
 ```html
 <div align="center">
@@ -239,7 +239,7 @@ All badges use `?style=for-the-badge` and are wrapped as links. Colors come from
 [![Mode](https://img.shields.io/badge/Mode-CLI-334155?style=for-the-badge)](#-usage)
 ```
 
-> Keep the `img.shields.io/badge/...` substrings intact (`License-MIT`, `PowerShell-5.1%2B`, `Platform-Windows%2010%2F11`) — the fidelity and compliance gates grep for them.
+> Keep the `img.shields.io/badge/...` substrings intact (`License-MIT`, `PowerShell-5.1%2B`, `Platform-Windows%2010%2F11`); the fidelity and compliance gates grep for them.
 
 ---
 
@@ -317,14 +317,14 @@ Clear-DnsClientCache
 
 ## Writing Tips
 
-1. **Use consistent section order**: Overview → Features → Structure → Scripts → Requirements → Deployment (if Intune) → Typical Workflow → [Extended sections] → Operational Notes → Author → License → Disclaimer (the mandatory tail `Author → License → Disclaimer` stays last so the footer is always reachable; match the variant templates).
-2. **Include badges**: Badges provide at-a-glance information about the project.
-3. **Use emojis**: Emojis make sections visually distinct and easier to scan.
-4. **Provide examples**: Always include usage examples with code blocks.
-5. **Specify language**: Use ```powershell for PowerShell code, ```text for file structures.
-6. **Use tables**: Tables are great for structured data like exit codes and settings.
-7. **Keep it concise**: Be clear and direct, avoid unnecessary words.
-8. **Include operational notes**: Document any important considerations or limitations.
-9. **Include a Disclaimer**: Every README carries the as-is Disclaimer section as the final heading before the footer — test-in-staging warning plus no-liability statement (copy verbatim, do not paraphrase).
-10. **Template is the floor**: Never delete mandatory sections; add extras only with the same design system (emoji headings, shields.io badges, tables, ``` fences, `---` separators).
-11. **Core Commands are essential**: list every main cmdlet/API the script uses — not helper scaffolding.
+1. Use consistent section order: Overview → Features → Structure → Scripts → Requirements → Deployment (if Intune) → Typical Workflow → [Extended sections] → Operational Notes → Author → License → Disclaimer (the mandatory tail `Author → License → Disclaimer` stays last so the footer is always reachable; match the variant templates).
+2. Include badges. They provide at-a-glance information about the project.
+3. Use emojis to make sections visually distinct and easier to scan.
+4. Provide examples. Include usage examples with code blocks.
+5. Specify the language: use ```powershell for PowerShell code, ```text for file structures.
+6. Use tables for structured data like exit codes and settings.
+7. Keep it concise. Be clear and direct, and avoid unnecessary words.
+8. Include operational notes for important considerations and limitations.
+9. Include a Disclaimer. Every README carries the as-is Disclaimer section as the final heading before the footer, with a test-in-staging warning plus no-liability statement (copy verbatim, do not paraphrase).
+10. Template is the floor: never delete mandatory sections; add extras only with the same design system (emoji headings, shields.io badges, tables, ``` fences, `---` separators).
+11. Core Commands are essential: list every main cmdlet/API the script uses, not helper scaffolding.

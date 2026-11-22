@@ -187,7 +187,7 @@ Use clear, standard job titles and language. Avoid made-up or overly creative jo
 **Guidance:**
 - Use standard PM titles: Product Manager, Senior Product Manager, Product Manager II, APM (Associate Product Manager), Principal Product Manager
 - Avoid: "Product Ninja," "Chief Growth Officer" (unless actually the title), "Product Guru"
-- **Product Owner vs Product Manager**: Product Owner is accountability in Scrum, Product Manager is a job title. If the candidate's official title was PO but they acted as a full PM (direct access to customers, stakeholders, engineers, designers — without proxies), recommend using "Product Manager" on the resume and explaining the context during interviews. See: [Product Owner vs Product Manager](https://www.productcompass.pm/p/product-manager-vs-product-owner)
+- **Product Owner vs Product Manager**: Product Owner is accountability in Scrum, Product Manager is a job title. If the candidate's official title was PO but they acted as a full PM (direct access to customers, stakeholders, engineers and designers, without proxies), recommend using "Product Manager" on the resume and explaining the context during interviews. See: [Product Owner vs Product Manager](https://www.productcompass.pm/p/product-manager-vs-product-owner)
 - Use consistent action verbs: Led, Launched, Increased, Reduced, Improved, Implemented
 - For each role, include: Company name, Job title, Dates (Month-Year format), Location (optional), 3-5 bullet points
 

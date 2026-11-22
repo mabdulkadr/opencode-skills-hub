@@ -1,5 +1,0 @@
----
-name: jobfit-intelligence
-description: "Evidence-based Job Fit, Gap Analysis, Salary Intelligence, and Interview Prep agent. Use proactively whenever the user mentions a job URL, job description, vacancy, analyze this job, compare CV to job, am I qualified, should I apply, gap analysis, salary range for a title, interview preparation, mock interview, CV tailoring for a role, LinkedIn optimization, or Arabic phrases like حلل وظيفة / قارن السي في / جهزني للمقابلة / كم الراتب / هل أنا مؤهل. Triggers even if the user only pastes a job link or JD without naming the skill, and for salary questions tied to a specific job title and country."
-version: 1.2.0
----

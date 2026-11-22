@@ -305,7 +305,7 @@ Set-Item WSMan:\localhost\Client\MaxEnvelopeSizekb -Value 8192
 Invoke-Command -ComputerName 'SRV01' -ScriptBlock $sb -SessionOption (New-PSSessionOption -MaximumReceivedObjectSizeMB 16)
 ```
 
-There is no `MaxEnvelopeSizekb` under bare `WSMan:\localhost\` — it only exists under the `Service\` and `Client\` sub-namespaces. The per-call `New-PSSessionOption -MaximumReceivedObjectSizeMB` shown above increases the *local client* receive buffer without a registry change, but it cannot raise the remote Service limit — that requires the `WSMan:\localhost\Service\` setting plus `Restart-Service WinRM` on the target.
+There is no `MaxEnvelopeSizekb` under bare `WSMan:\localhost\`; it exists only under the `Service\` and `Client\` sub-namespaces. The per-call `New-PSSessionOption -MaximumReceivedObjectSizeMB` shown above increases the local client receive buffer without a registry change, but it cannot raise the remote Service limit. That requires the `WSMan:\localhost\Service\` setting plus `Restart-Service WinRM` on the target.
 
 ### "The connection to the remote computer was closed"
 

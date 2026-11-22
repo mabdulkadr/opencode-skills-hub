@@ -9,7 +9,7 @@ description: Extracts what the user actually wants instead of what they think th
 
 What people ask for and what they actually want are different things. They ask for "a dashboard" because that's what one asks for, not because a dashboard solves their problem. They say "make it faster" without a number to hit.
 
-The cheapest moment to find this gap is before any plan, spec, or code exists. Once you've started building, switching costs are real, and the user will rationalize the wrong thing into a "good enough" thing. The misfit gets locked in.
+The cheapest moment to find this gap is before any plan, spec, or code exists. Once you've started building, switching costs are real, and the user will rationalize the wrong thing into a "good enough" thing.
 
 This skill closes the gap before it costs anything. The other Define-phase skills assume you already know roughly what you want: `idea-refine` generates variations from an idea, `spec-driven-development` writes the requirements down, `doubt-driven-development` stress-tests a plan after you've drafted one. Interview-me is the part before all of those, where you ask one question at a time, with your best guess attached, until you can predict what the user is going to say before they say it.
 
@@ -48,7 +48,7 @@ CONFIDENCE: ~30% — missing: who it's for, what "metrics" means in context, and
 
 The number forces honesty. If you wrote down a high number but can't actually predict the user's reactions to the next three questions you'd ask, the number is wrong. Start at the confidence level you can defend.
 
-When confidence is below ~70%, append a brief reason on the same line — what's still unresolved or missing. This tells the user exactly what the interview needs to surface, and prevents the number from being a vague signal.
+When confidence is below ~70%, append a brief reason on the same line: what's still unresolved or missing. This tells the user exactly what the interview needs to surface, and prevents the number from being a vague signal.
 
 ### Step 2: Ask one question at a time, each with a guess attached
 
@@ -83,7 +83,7 @@ The most dangerous answers are the ones where the user says what a thoughtful an
 - Answers that pattern-match best-practice talk ("I want it to be scalable", "clean architecture") without specifics
 - Answers that defer to convention ("the way most apps do it", "the standard approach")
 - Phrases like "I should probably…", "I think I'm supposed to…", "good engineering practice says…"
-- Buzzwords as goals — when "modern", "scalable", "robust" are the answer instead of a specific outcome
+- Buzzwords as goals: when "modern", "scalable", "robust" are the answer instead of a specific outcome
 
 When you hear these, the question to ask is:
 

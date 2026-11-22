@@ -1,6 +1,6 @@
 # Skill Registration Checklist
 
-Use this after installing to confirm a skill is registered with OpenCode. Replaces an earlier ad-hoc verification log that referenced machine-specific paths.
+Use this after installing to confirm a skill is registered with OpenCode.
 
 ## 1. Confirm the files landed
 
@@ -40,7 +40,7 @@ description: "..."
 
 ## 4. Check name uniqueness
 
-Two installed skills with the same `name` shadow each other. This repo has one such pair, `business-english-it-pro` (folders `business-english-it-pro` and `Business-English-IT-Pro-Skill`) — keep only one.
+Two installed skills with the same `name` shadow each other. This repo has one such pair, `business-english-it-pro` (folders `business-english-it-pro` and `Business-English-IT-Pro-Skill`): keep only one.
 
 ```powershell
 Select-String -Path "$env:USERPROFILE\.config\opencode\skills\*\SKILL.md" -Pattern '^name:' | Group-Object Line | Where-Object Count -gt 1

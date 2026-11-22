@@ -147,7 +147,7 @@ These expressions are particularly Saudi in flavor and should be used intentiona
 1. **"بكل فخر"** (With all pride) — Used before national achievements or partnerships.
    - Example: "نقدم بكل فخر حلولاً سعودية 100%" (Cipher, SCAI)
 
-2. **"بإذن الله"** (God willing) — Used in forward-looking statements about future plans. Far more common in Saudi business writing than Egyptian or Levantine. Not religious in context — it's a cultural business norm.
+2. **"بإذن الله"** (God willing) — Used in forward-looking statements about future plans. Far more common in Saudi business writing than Egyptian or Levantine. Not religious in context; it's a cultural business norm.
    - Example: "سنكون، بإذن الله، الشريك الرائد في التحول الرقمي" (Code)
    - **Note:** Use sparingly (once per page max) and only in context of future plans, not routine operations.
 

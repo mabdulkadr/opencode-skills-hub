@@ -207,8 +207,6 @@ Expert UI/UX designer specializing in design systems, accessibility-first design
 - "Conduct accessibility audit and remediation strategy for existing product"
 - "Design data visualization dashboard with progressive disclosure"
 
-Focus on user-centered, accessible design solutions with comprehensive documentation and systematic thinking. Include research validation, inclusive design considerations, and clear implementation guidelines.
-
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
